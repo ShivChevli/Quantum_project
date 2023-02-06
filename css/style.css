@@ -158,6 +158,9 @@ body {
     flex-wrap: wrap;
     order: 1;
   }
+  .header .navbar .display_flex {
+    display: flex;
+  }
   .header .navbar .toggle-btn {
     display: block;
   }

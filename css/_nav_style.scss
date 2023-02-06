@@ -99,7 +99,9 @@
         flex-wrap: wrap;
         order: 1;
       }
-
+      .display_flex {
+        display: flex;
+      }
       .toggle-btn {
         display: block;
       }

@@ -121,7 +121,7 @@ loadClassDetails();
 let nav = document.querySelector("#nav-menu");
 let isOpen = false;
 function toggle_menu() {
-    nav.style.display = isOpen ? "none" : "flex";
+    isOpen ? nav.classList.remove("display_flex") : nav.classList.add("display_flex");
     isOpen = !isOpen;
 }
 document.querySelector("#menu-toggle-btn").addEventListener("click", (event) => {
