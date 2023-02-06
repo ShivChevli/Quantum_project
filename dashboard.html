@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard -home </title>
-    <link rel="stylesheet" href="css/dashboard_style.css">
+    <link rel="stylesheet" href="css/style_dashboard.css">
     <link rel="preload" href="assets/Quicksand font 1/Quicksand-VariableFont_wght.ttf" as="font" type="font/ttf"
         crossorigin="anonymous">
 </head>
@@ -27,16 +27,22 @@
             </ul>
             <ul class="navbar-toolbox">
                 <li>
-                    <img src="assets/icons/alerts.svg" alt="">
-                    <span class="notification-badge"> 5 </span>
+                    <button class="btn">
+                        <img src="assets/icons/alerts.svg" alt="">
+                        <span class="notification-badge"> 5 </span>
+                    </button>
                 </li>
                 <li>
-                    <img src="assets/icons/announcements.svg" alt="">
-                    <span class="notification-badge"> 5 </span>
+                    <button class="btn">        
+                        <img src="assets/icons/announcements.svg" alt="">
+                        <span class="notification-badge"> 5 </span>
+                    </button>
                 </li>
                 <li>
-                    <img src="assets/screen_Assets/icons/account_circle.svg" alt="">
-                    <span class="notification-badge notification-badge--light"> T </span>
+                    <button class="btn">
+                        <img src="assets/screen_Assets/icons/account_circle.svg" alt="">
+                        <span class="notification-badge notification-badge--light"> T </span>
+                    </button>
                 </li>
             </ul>
             <button class="toggle-btn">
@@ -50,14 +56,14 @@
         <div class="main-div">
             <!-- sub tab -->
             <div class="sub-tab">
-                <div class="sub-tab-item active">
+                <button class="sub-tab-item active">
                     <img class="sub-tab-item--img" src="assets/icons/courses.svg" alt="">
-                    <p><span class="sub-tab-item-quantity">4</span> courses</p>
-                </div>
-                <div class="sub-tab-item">
+                    <div><span class="sub-tab-item-quantity">4</span> <span class="sub-tab-item-lable">Courses</span></div>
+                </button>
+                <button class="sub-tab-item">
                     <img class="sub-tab-item--img" src="assets/icons/classes.svg" alt="">
-                    <p><span class="sub-tab-item-quantity">4</span> Classes</p>
-                </div>
+                    <div><span class="sub-tab-item-quantity">4</span> <span class="sub-tab-item-lable">Classes</span></div>
+                </button>
             </div>
 
             <!-- filter  -->
@@ -164,10 +170,10 @@
                         <button class="card-footer--btn">
                             <img src="assets/icons/preview.svg" alt="">
                         </button>
-                        <button class="card-footer--btn btn-disable">
+                        <button class="card-footer--btn" disabled>
                             <img src="assets/icons/manage course.svg" alt="">
                         </button>
-                        <button class="card-footer--btn btn-disable">
+                        <button class="card-footer--btn " disabled>
                             <img src="assets/icons/grade submissions.svg" alt="">
                         </button>
                         <button class="card-footer--btn">
@@ -216,10 +222,10 @@
                         <button class="card-footer--btn">
                             <img src="assets/icons/preview.svg" alt="">
                         </button>
-                        <button class="card-footer--btn btn-disable">
+                        <button class="card-footer--btn " disabled>
                             <img src="assets/icons/manage course.svg" alt="">
                         </button>
-                        <button class="card-footer--btn btn-disable">
+                        <button class="card-footer--btn " disabled>
                             <img src="assets/icons/grade submissions.svg" alt="">
                         </button>
                         <button class="card-footer--btn">
@@ -229,7 +235,7 @@
                 </div>
 
                 <div class="card-div">
-                    <span class="lable">Expired</span>
+                    <span class="status-lable">Expired</span>
                     <div class="card-body">
                         <img class="card-body--img" src="assets/images/imageMask-2.svg" alt="">
                         <div class="card-content-detail">
@@ -292,12 +298,15 @@
             <a href="" class="footer-option_link">Contect Us</a>
         </div>
         <div class="footer-content">
-            <img class="footer-logo" src="assets/icons/logo used in footer.svg" alt="Quantum Footer logo">
+            <a href="">
+                <img class="footer-logo" src="assets/icons/logo used in footer.svg" alt="Quantum Footer logo">
+            </a>
             <span class="footer-content--span">Copyright &copy; 2020-2021</span>
             <span class="footer-content--span util-bold-font">Zeus System Pvt. Ltd.</span>
             <span class="footer-content--span">All right reserved</span>
         </div>
     </div>
+    <script src="./js/dashboard_script.js" defer ></script>
 </body>
 
 </html>

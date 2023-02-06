@@ -1,0 +1,76 @@
+@font-face {
+  font-family: "Quicksand";
+  src: url("../assets/Quicksand\ font\ 1/Quicksand-VariableFont_wght.ttf");
+}
+
+$header_bg: #25313f;
+$pure_white: #ffffff;
+$pure_black: #000000;
+$footer_gray: #e0e1e1;
+$blank: #222222;
+$white: #eeeeee;
+$gray: #616161;
+$bg_green: #3fd28b;
+$submit_bg: #1f7a54;
+$underline_blue: #31b9e4;
+$expire_lable_red: #d80000;
+$expire_lable_red_bg: #ffe4e6;
+
+@mixin textCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Quicksand, Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  background: $white;
+}
+
+.input-div--control {
+  width: 100%;
+  background: $pure_white;
+  border: none;
+  color: $blank;
+  font-size: 16px;
+  margin: 5px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  &:focus-visible {
+    font-weight: 900;
+    border-bottom: 2px solid rgba(0, 0, 0, 1);
+    outline: 0;
+  }
+  &:focus {
+    font-weight: 900;
+    border-bottom: 2px solid rgba(0, 0, 0, 1);
+  }
+}
+.input-div-forgot-link {
+  color: $submit_bg;
+  font-size: 14px;
+  display: block;
+  text-decoration: no;
+  text-align: right;
+  font-feature-settings: "smcp";
+  text-transform: uppercase;
+}
+.input-div--control_arrow {
+  appearance: none;
+  padding-right: 20px;
+  background-image: url("../assets/icons/arrow-down.svg");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 3px) center;
+  background-size: 20px;
+  font-weight: 600;
+}

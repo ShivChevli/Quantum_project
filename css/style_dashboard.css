@@ -7,7 +7,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Quicksand, Arial, Helvetica, sans-serif;
-  /* font-weight: 600; */
+  font-weight: 600;
 }
 
 body {
@@ -16,6 +16,48 @@ body {
   width: 100%;
   min-height: 100vh;
   background: #eeeeee;
+}
+
+.input-div--control {
+  width: 100%;
+  background: #ffffff;
+  border: none;
+  color: #222222;
+  font-size: 16px;
+  margin: 5px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+.input-div--control:focus-visible {
+  font-weight: 900;
+  border-bottom: 2px solid rgb(0, 0, 0);
+  outline: 0;
+}
+.input-div--control:focus {
+  font-weight: 900;
+  border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+.input-div-forgot-link {
+  color: #1f7a54;
+  font-size: 14px;
+  display: block;
+  -webkit-text-decoration: no;
+          text-decoration: no;
+  text-align: right;
+  font-feature-settings: "smcp";
+  text-transform: uppercase;
+}
+
+.input-div--control_arrow {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding-right: 20px;
+  background-image: url("../assets/icons/arrow-down.svg");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 3px) center;
+  background-size: 20px;
+  font-weight: 600;
 }
 
 .header {
@@ -33,8 +75,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  justify-content: flex-start;
   width: 100%;
-  max-width: 1080px;
   margin: 0 auto;
 }
 .header .fram-container .header-logo {
@@ -126,11 +168,9 @@ body {
 }
 .content-body {
   display: grid;
-  grid-template-columns: 1fr min(1080px, 100%) 1fr;
 }
 .content-body .main-div {
   padding: 0 24px;
-  grid-column: 2;
   min-width: 0;
 }
 .content-body .main-div .sub-tab {
@@ -262,37 +302,6 @@ body {
 .content-body .main-div .card-div .card-footer .card-footer--btn {
   background: none;
   border: none;
-}
-
-.input-div--control {
-  width: 100%;
-  background: #ffffff;
-  border: none;
-  color: #222222;
-  font-size: 16px;
-  margin: 5px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-}
-.input-div--control:focus-visible {
-  font-weight: 900;
-  border-bottom: 2px solid rgb(0, 0, 0);
-  outline: 0;
-}
-.input-div--control:focus {
-  font-weight: 900;
-  border-bottom: 2px solid rgb(0, 0, 0);
-}
-
-.input-div--control_arrow {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  padding-right: 20px;
-  background-image: url("../assets/icons/arrow-down.svg");
-  background-repeat: no-repeat;
-  background-position: calc(100% - 3px) center;
-  background-size: 20px;
-  font-weight: 600;
 }
 
 .data-seprator {
