@@ -60,6 +60,10 @@ body {
   font-weight: 600;
 }
 
+.util-bold-font {
+  font-weight: 900;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -166,6 +170,50 @@ body {
     margin-left: auto;
   }
 }
+/* 
+    footer style
+*/
+.footer {
+  margin-top: auto;
+  font-weight: 600;
+}
+.footer .footer-option_div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 16px 0;
+  background-color: #eeeeee;
+}
+.footer .footer-option_div .footer-option_link {
+  color: #1f7a54;
+  font-size: 16px;
+  letter-spacing: 0px;
+  padding: 0 15px;
+  text-decoration: none;
+}
+.footer .footer-option_div .footer-option_link:nth-of-type(1) {
+  border-right: 1px solid #1f7a54;
+}
+.footer .footer-content {
+  background-color: #e0e1e1;
+  padding: 8px 0;
+  text-align: center;
+}
+.footer .footer-content * {
+  vertical-align: middle;
+}
+.footer .footer-content .footer-logo {
+  height: 24px;
+  padding-right: 16px;
+  margin-right: 12px;
+  border-right: 1px solid #616161;
+}
+.footer .footer-content .footer-content--span {
+  font-size: 12px;
+  color: #616161;
+  margin: 0 4px;
+}
+
 .content-body {
   background-color: #eeeeee;
   padding: 50px 0 16px;
@@ -266,51 +314,4 @@ body {
   border: none;
   font-size: 14px;
   margin: 0 auto;
-}
-
-/* 
-    footer style
-*/
-.footer {
-  margin-top: auto;
-}
-.footer .footer-option_div {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 16px 0;
-  background-color: #eeeeee;
-}
-.footer .footer-option_div .footer-option_link {
-  color: #1f7a54;
-  font-size: 16px;
-  letter-spacing: 0px;
-  padding: 0 15px;
-  text-decoration: none;
-}
-.footer .footer-option_div .footer-option_link:nth-of-type(1) {
-  border-right: 1px solid #1f7a54;
-}
-.footer .footer-content {
-  background-color: #eeeeee;
-  padding: 8px 0;
-  text-align: center;
-}
-.footer .footer-content * {
-  vertical-align: middle;
-}
-.footer .footer-content .footer-logo {
-  height: 24px;
-  padding-right: 16px;
-  margin-right: 12px;
-  border-right: 1px solid #616161;
-}
-.footer .footer-content .footer-content--span {
-  font-size: 12px;
-  color: #616161;
-  margin: 0 4px;
-}
-
-.util-bold-font {
-  font-weight: 900;
 }/*# sourceMappingURL=style.css.map */

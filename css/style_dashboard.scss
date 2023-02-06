@@ -1,5 +1,6 @@
 @import "./common_style";
 @import "./nav_style";
+@import "./footer_style";
 
 .content-body {
   display: grid;
@@ -91,7 +92,7 @@
 
     .card-div {
       position: relative;
-      flex: 1;
+      flex: 1 1 500px;
       padding: 24px;
       min-width: 476px;
       max-width: 571px;
@@ -152,11 +153,6 @@
         border-top: 1px solid #666666;
         display: flex;
         justify-content: space-around;
-
-        .card-footer--btn {
-          background: none;
-          border: none;
-        }
       }
     }
   }
@@ -174,6 +170,9 @@
 
 button:disabled {
   opacity: 0.4;
+}
+button:disabled:hover {
+  cursor: auto;
 }
 
 .btn {
@@ -196,58 +195,6 @@ button:disabled {
   font-size: 10px;
   background: $expire_lable_red_bg;
 }
-
-/* 
-    footer style
-*/
-
-.footer {
-  margin-top: auto;
-  font-weight: 600;
-
-  .footer-option_div {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 16px 0;
-    background-color: $white;
-
-    .footer-option_link {
-      color: $submit_bg;
-      font-size: 16px;
-      letter-spacing: 0px;
-      padding: 0 15px;
-      text-decoration: none;
-    }
-
-    .footer-option_link:nth-of-type(1) {
-      border-right: 1px solid $submit_bg;
-    }
-  }
-
-  .footer-content {
-    background-color: $footer_gray;
-    padding: 8px 0;
-    text-align: center;
-
-    * {
-      vertical-align: middle;
-    }
-
-    .footer-logo {
-      height: 24px;
-      padding-right: 16px;
-      margin-right: 12px;
-      border-right: 1px solid $gray;
-    }
-
-    .footer-content--span {
-      font-size: 12px;
-      color: $gray;
-      margin: 0 4px;
-    }
-  }
-}
-.util-bold-font {
-  font-weight: 900;
+.text-green {
+  color: $submit_bg;
 }

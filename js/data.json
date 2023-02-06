@@ -1,0 +1,66 @@
+[
+    {
+        "class_heading": "Acceleration",
+        "cetegory": "Physics",
+        "grad": "Grade 7 +2",
+        "details": {
+            "number_of_unit": 4,
+            "number_of_lession": 12,
+            "number_of_topics": 24
+        } ,
+            "student": 50,
+            
+            "isStarred": true,
+            "img":"http://127.0.0.1:5555/assets/images/imageMask-1.png",
+            "is_visiable": true,
+            "isExpire": false,
+            "options": [
+                "Mr. Frank's Class B",
+                "All Classes",
+                "Mr. Frank's Class A"
+            ]
+            
+    },
+    {
+        "class_heading": "Acceleration",
+        "cetegory": "Physics",
+        "grad": "Grade 7",
+        "details": {
+            "number_of_unit": 4,
+            "number_of_lession": 12,
+            "number_of_topics": 24
+        } ,
+            "student": 50,
+            "course_duration":{
+                "starting_date":"21-Jan-2020",
+                "ending_date": "21-Aug-2020"
+            },
+            "isStarred": true,
+            "img":"http://127.0.0.1:5555/assets/images/imageMask-1.png",
+            "is_visiable": true,
+            "isExpire": false,
+            "action":{
+                "disableReport": true,
+                "disableSubmission":true
+            }
+    },
+    {
+        "class_heading": "Acceleration",
+        "cetegory": "Physics",
+        "grad": "Grade 7 +2",
+        "details": {
+            "number_of_unit": 4,
+            "number_of_lession": 12,
+            "number_of_topics": 24
+        } ,
+            "student": 0,
+            "course_duration": "",
+            "isStarred": false,
+            "img":"http://127.0.0.1:5555/assets/images/imageMask-1.png",
+            "isExpire": true,
+            "action":{
+                "disablePreview":true,
+                "disableCourseManager":true
+            }
+    }
+]
