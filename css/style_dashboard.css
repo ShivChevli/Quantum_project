@@ -262,6 +262,8 @@ body {
 }
 .content-body .main-div .filter-bar {
   display: flex;
+  align-items: center;
+  justify-content: center;
   color: #616161;
   justify-content: space-between;
   height: 45px;

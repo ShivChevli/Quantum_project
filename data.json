@@ -1,0 +1,56 @@
+[
+    {
+        "class_heading": "Acceleration",
+        "cetegory": "Physics",
+        "grad": "Grade 7 +2",
+        "details": {
+            "number_of_unit": 4,
+            "number_of_lession": 12,
+            "number_of_topics": 24
+        } ,
+            "student": 50,
+            "isStarred": true,
+            "img":"http://127.0.0.1:5555/assets/images/imageMask-1.png",
+            "isExpire": false,
+            "options": [
+                "Mr. Frank's Class B",
+                "All Classes",
+                "Mr. Frank's Class A"
+            ]
+            
+    },
+    {
+        "class_heading": "Displacement, Velocity and Speed",
+        "cetegory": "Physics 2",
+        "grad": "Grade 6 +3",
+        "details": {
+            "number_of_unit": 2,
+            "number_of_lession": 15,
+            "number_of_topics": 20
+        } ,
+            "isStarred": true,
+            "img":"http://127.0.0.1:5555/assets/images/imageMask-2.png",
+            "isExpire": false,
+            "action":{
+                "disableCourseManager": true,
+                "disableSubmission":true
+            }
+    },
+    {
+        "class_heading": "Introduction to Biology: Micro organisms and how they affecasdfasdf asdfa sdaf asdf asd",
+        "cetegory": "Biology",
+        "grad": "Grade 4 +1",
+        "details": {
+            "number_of_unit": 5,
+            "number_of_lession": 16,
+            "number_of_topics": 22
+        } ,
+            "student": 300,
+            "img":"http://127.0.0.1:5555/assets/images/imageMask-3.png",
+            "isExpire": true,
+            "action":{
+                "disableSubmission":true,
+                "disableCourseManager":true
+            }
+    }
+]
