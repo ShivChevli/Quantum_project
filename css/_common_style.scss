@@ -9,7 +9,9 @@ $pure_black: #000000;
 $footer_gray: #e0e1e1;
 $blank: #222222;
 $white: #eeeeee;
+$off_white: #ffffee;
 $gray: #616161;
+$light_gray: #6e6e6e;
 $bg_green: #3fd28b;
 $bg_light_green: #8ddc97;
 $submit_bg: #1f7a54;
@@ -78,4 +80,18 @@ body {
 
 .util-bold-font {
   font-weight: 900;
+}
+
+.bg-offWhite {
+  background-color: $off_white;
+}
+.color-gray {
+  color: $light_gray;
+}
+.font-small {
+  font-size: 12px;
+}
+
+#announcements-list {
+  display: none;
 }

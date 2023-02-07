@@ -46,6 +46,118 @@
       background-color: $pure_white;
       color: $pure_black;
     }
+    .navbar-toolbox {
+      position: relative;
+    }
+    .information-box {
+      display: block;
+      position: absolute;
+      top: 175%;
+      right: 0;
+      z-index: 5;
+      background-color: $pure_white;
+      width: 315px;
+      max-height: 582px;
+      box-shadow: 0px 3px 6px #00000029;
+      // padding: 16px 16px 0;
+
+      .alert-list {
+        max-height: 534px;
+        overflow-y: auto;
+        display: block;
+
+        .alert-list-item {
+          display: block;
+          height: fit-content;
+          text-align: left;
+          padding: 16px;
+          border-bottom: 1px solid gray;
+          p {
+            display: flex;
+          }
+          .action-img {
+            margin-left: auto;
+            margin-right: 0;
+            height: 18px;
+            width: 15px;
+          }
+          .course-lable {
+            display: block;
+            color: $light_gray;
+            width: 100%;
+            font-size: 12px;
+            margin-bottom: 8px;
+            span {
+              color: $blank;
+            }
+          }
+          .remove-icom {
+            height: 21px;
+            width: 17px;
+          }
+          .list-top {
+            font-size: 12px;
+            margin-bottom: 5px;
+
+            label {
+              color: $light_gray;
+            }
+          }
+          .list-content {
+            display: flex;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: $blank;
+          }
+          .list-footer {
+            color: $light_gray;
+            font-size: 12px;
+            flex-wrap: wrap;
+            * {
+              vertical-align: middle;
+            }
+            // .course-lable {
+            //   width: 100%;
+            //   font-size: 12px;
+            //   margin-bottom: 8px;
+            // }
+            .file-attach {
+              img {
+                margin: 0 -5px 0 0;
+                height: 12px;
+                width: 12px;
+              }
+            }
+            .time {
+              margin-left: auto;
+            }
+          }
+        }
+      }
+
+      .action-btn-div {
+        height: 48px;
+        padding: 9px 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        box-shadow: 0px 3px 6px #00000029;
+
+        span {
+          color: $submit_bg;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .border-left {
+          border-left: 1px solid #0000001f;
+        }
+      }
+
+      .single-element {
+        grid-template-columns: 1fr;
+      }
+    }
   }
 }
 
