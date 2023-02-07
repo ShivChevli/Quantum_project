@@ -1,8 +1,3 @@
-const classesOptions =[
-    "Mr. Frank's Class A",
-    "Mr. Frank's Class B",
-    "Mr. Frank's Class C",
-]
 let notification_badge = document.querySelector("#notification-badge");
 interface fetchdataType{
     class_heading: string,
@@ -14,10 +9,10 @@ interface fetchdataType{
         number_of_topics: number
     } ,
     student?: number,
-    isStarred?: boolean,
+    is_starred?: boolean,
     img:string,
     // is_visiable: boolean,
-    isExpire?: boolean,
+    is_expire?: boolean,
     options: string[],
     action?:{
                 disablePreview?:boolean,
@@ -55,7 +50,7 @@ function loadClassDetails(): void {
             loadCourseStatus(data.length);
 
             data.map((item) => {
-                let stared_Section = item.isStarred ?
+                let stared_Section = item.is_starred ?
                     "<img src='assets/icons/favourite.svg' alt='added to favourite'>"
                     : `<svg id="favourite" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24">
@@ -76,9 +71,9 @@ function loadClassDetails(): void {
                     grad_section = `<span class="data-seprator">${tmp[0]} ${tmp1}</span>`;
                 }
                 
-                let load_option = `<select name="class-type" id="" class="input-div--control input-div--control_arrow ">
-                                <option value="-1" disabled selected hidden>No Class Selected</option>
-                                ${item.options ? item.options.map((data)=> `<option value="">${data}</option>`) : ""
+                let load_option = `<select name="class-type" id="" class="input-div--control input-div--control_arrow" ${item.options ?"":"disabled" }>
+                                ${item.options ? item.options.map((data) => `<option value="">${data}</option>`) :
+                        `<option value="-1" disabled selected hidden>No Class Selected</option>`
                                 }
                             </select>`;
 
@@ -130,7 +125,7 @@ function loadClassDetails(): void {
                 
                 container.innerHTML += `
                     <div class="card-div">
-                    ${item.isExpire ? "<span class='status-lable'>Expired</span>" : ""}
+                    ${item.is_expire ? "<span class='status-lable'>Expired</span>" : ""}
                         <div class="card-body">
                             <img class="card-body--img" src="${item.img}" alt="Acceleration image">
                             <div class="card-content-detail">

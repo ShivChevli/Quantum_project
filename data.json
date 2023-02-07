@@ -1,6 +1,6 @@
 [
     {
-        "img":"http://127.0.0.1:5555/assets/images/imageMask-1.png",
+        "img":"/assets/images/imageMask.png",
         "class_heading": "Acceleration",
         "cetegory": "Physics",
         "grad": "Grade 7 +2",
@@ -10,16 +10,20 @@
             "number_of_topics": 24
         } ,
         "student": 50,
-        "isStarred": true,
-        "isExpire": false,
+        "is_starred": true,
+        "is_expire": false,
         "options": [
             "Mr. Frank's Class B",
             "All Classes",
             "Mr. Frank's Class A"
-        ]   
+        ],  
+        "course_duration":{
+            "starting_date":"21-Jan-2020",
+            "ending_date": "21-Aug-2020"
+        }
     },
     {
-        "img":"http://127.0.0.1:5555/assets/images/imageMask-2.png",
+        "img":"/assets/images/imageMask-1.png",
         "class_heading": "Displacement, Velocity and Speed",
         "cetegory": "Physics 2",
         "grad": "Grade 6 +3",
@@ -28,15 +32,15 @@
             "number_of_lession": 15,
             "number_of_topics": 20
         } ,
-            "isStarred": true,
-            "isExpire": false,
+            "is_starred": true,
+            "is_expire": false,
             "action":{
                 "disableCourseManager": true,
                 "disableSubmission":true
             }
     },
     {
-        "img":"http://127.0.0.1:5555/assets/images/imageMask-3.png",
+        "img":"/assets/images/imageMask-3.png",
         "class_heading": "Introduction to Biology: Micro organisms and how they affecasdfasdf asdfa sdaf asdf asd",
         "cetegory": "Biology",
         "grad": "Grade 4 +1",
@@ -46,10 +50,32 @@
             "number_of_topics": 22
         } ,
             "student": 300,
-            "isExpire": true,
+            "is_expire": false,
+            "is_starred":true,
             "action":{
                 "disableSubmission":true,
                 "disableCourseManager":true
-            }
+            },
+            "options" : [
+                "All Classes"
+            ]
+    },
+    {
+        "img":"/assets/images/imageMask-2.png",
+        "class_heading": "Introduction to High School Mathematics",
+        "cetegory": "Mathematics ",
+        "grad": "Grade 8 +3",
+        "student": 44,
+        "is_starred": false,
+        "is_expire": true,
+        "options": [
+            "Mr. Frank's Class A",
+            "All Classes",
+            "Mr. Frank's Class B"
+        ],
+        "course_duration":{
+            "starting_date":"14-Oct-2019",
+            "ending_date": "20-Oct-2020"
+        }
     }
 ]
