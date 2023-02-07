@@ -1,4 +1,9 @@
-
+const classesOptions =[
+    "Mr. Frank's Class A",
+    "Mr. Frank's Class B",
+    "Mr. Frank's Class C",
+]
+let notification_badge = document.querySelector("#notification-badge");
 interface fetchdataType{
     class_heading: string,
     cetegory: string,
@@ -167,6 +172,14 @@ function toggle_menu() {
     isOpen ? nav.classList.remove("display_flex") : nav.classList.add("display_flex");
     isOpen = !isOpen;
 }
+
+function updateNotificationBadge(count: number): void{
+    notification_badge.innerHTML = count +"";
+}
+function updateAccouncementBadge(count: number): void{
+    notification_badge.innerHTML = count +"";
+}
+
 
 let btn = document.querySelector("#menu-toggle-btn") as HTMLButtonElement;
 btn.addEventListener("click", (event) => {

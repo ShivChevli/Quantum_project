@@ -1,3 +1,9 @@
+var classesOptions = [
+    "Mr. Frank's Class A",
+    "Mr. Frank's Class B",
+    "Mr. Frank's Class C",
+];
+var notification_badge = document.querySelector("#notification-badge");
 function loadCourseStatus(count) {
     var total = document.querySelector("#total_courses");
     var displayed_course = document.querySelector("#displayed_courses");
@@ -56,6 +62,12 @@ var isOpen = false;
 function toggle_menu() {
     isOpen ? nav.classList.remove("display_flex") : nav.classList.add("display_flex");
     isOpen = !isOpen;
+}
+function updateNotificationBadge(count) {
+    notification_badge.innerHTML = count + "";
+}
+function updateAccouncementBadge(count) {
+    notification_badge.innerHTML = count + "";
 }
 var btn = document.querySelector("#menu-toggle-btn");
 btn.addEventListener("click", function (event) {
