@@ -52,7 +52,7 @@
     }
 
     .filter-bar {
-      display: flex;
+      @include textCenter();
       // color: #686868;
       color: $gray;
       justify-content: space-between;

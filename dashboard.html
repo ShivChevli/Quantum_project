@@ -29,13 +29,13 @@
                 <li>
                     <button class="btn">
                         <img src="assets/icons/alerts.svg" alt="">
-                        <span class="notification-badge"> 5 </span>
+                        <span class="notification-badge" id="notificatoin-badge"> 5 </span>
                     </button>
                 </li>
                 <li>
                     <button class="btn">        
                         <img src="assets/icons/announcements.svg" alt="">
-                        <span class="notification-badge"> 5 </span>
+                        <span class="notification-badge" id="announcements-badge"> 5 </span>
                     </button>
                 </li>
                 <li>
@@ -68,7 +68,7 @@
 
             <!-- filter  -->
             <div class="filter-bar">
-                <p class="course-paging">Showing <span id="display-course">4</span> of <span id="total-courses">4</span> courses</p>
+                <p class="course-paging">Showing <span id="display-courses">4</span> of <span id="total-courses">4</span> courses</p>
                 <div class="sorting-box">
                     <label for="sort-type" class="sorting-box--lable">Sort By:</label>
                     <select name="sort-type" id="sort-type" class="sorting-box--select input-div--control_arrow ">
@@ -307,7 +307,7 @@
             <span class="footer-content--span">All right reserved</span>
         </div>
     </div>
-    <script src="./js/dashboard_script.js" defer ></script>
+    <script src="./ts/build/dashboard_ts_script.js" defer ></script>
 </body>
 
 </html>
