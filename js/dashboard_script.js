@@ -1,13 +1,20 @@
+function updateStatus(count) {
+    let display = document.querySelector("#display-course");
+    let total = document.querySelector("#total-courses");
+    display.innerHTML = count > 10 ? 10 : count;
+    total.innerHTML = count;
+}
 function loadClassDetails() {
     let container = document.querySelector(".card-container");
 
-    fetch("http://127.0.0.1:5555/js/data.json")
+    fetch("/js/data.json")
         .then(response => response.json())
         .then(data => {
             console.log(data);
+            updateStatus(data.length);
             data.map((item) => {
 
-                let stared_Section = item.isStarred ?
+                let stared_Section = item.is_starred ?
                     "<img src='assets/icons/favourite.svg' alt='added to favourite'>"
                     : `<svg id="favourite" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24">
@@ -82,7 +89,7 @@ function loadClassDetails() {
                 
                 container.innerHTML += `
                     <div class="card-div">
-                    ${item.isExpire ? "<span class='status-lable'>Expired</span>" : ""}
+                    ${item.is_expire ? "<span class='status-lable'>Expired</span>" : ""}
                         <div class="card-body">
                             <img class="card-body--img" src="${item.img}" alt="Acceleration image">
                             <div class="card-content-detail">

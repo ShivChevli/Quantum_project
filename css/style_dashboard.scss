@@ -13,7 +13,7 @@
 
     .sub-tab {
       // background-color: #8DDC97;
-      background-color: $bg_green;
+      background-color: $bg_light_green;
       @include textCenter();
       /* height: 100px; */
       margin: 24px 0;
@@ -87,15 +87,25 @@
 
     .card-container {
       @include textCenter();
-      flex-wrap: wrap;
+      // flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(476px, 1fr));
+      grid-gap: 12px;
+      justify-items: center;
     }
 
+    @media screen and (max-width: 769px) {
+      .card-container {
+        grid-template-columns: repeat(auto-fit, 1fr);
+      }
+    }
     .card-div {
       position: relative;
-      flex: 1 1 500px;
-      padding: 24px;
-      min-width: 476px;
-      max-width: 571px;
+      // flex: 1 1 500px;
+      width: 100%;
+      padding: 24px 24px 0;
+      // min-width: 476px;
+      // max-width: 500px;
       margin: 8px;
       background: $pure_white;
 

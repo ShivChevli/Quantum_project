@@ -1,5 +1,7 @@
 [
     {
+        "img":"/assets/images/imageMask.png",
+        "is_starred": true,
         "class_heading": "Acceleration",
         "cetegory": "Physics",
         "grad": "Grade 7 +2",
@@ -8,12 +10,12 @@
             "number_of_lession": 12,
             "number_of_topics": 24
         } ,
+        "course_duration":{
+            "starting_date" : "21-Jan-2020",
+            "ending_date":"21-Aug-2020"
+        },
             "student": 50,
-            
-            "isStarred": true,
-            "img":"http://127.0.0.1:5555/assets/images/imageMask-1.png",
-            "is_visiable": true,
-            "isExpire": false,
+            "is_expire": false,
             "options": [
                 "Mr. Frank's Class B",
                 "All Classes",
@@ -22,45 +24,58 @@
             
     },
     {
-        "class_heading": "Acceleration",
-        "cetegory": "Physics",
-        "grad": "Grade 7",
+        "class_heading": "Displacement, Velocity and Speed",
+        "cetegory": "Physics 2",
+        "grad": "Grade 6 +3",
         "details": {
-            "number_of_unit": 4,
-            "number_of_lession": 12,
-            "number_of_topics": 24
+            "number_of_unit": 2,
+            "number_of_lession": 15,
+            "number_of_topics": 20
         } ,
-            "student": 50,
-            "course_duration":{
-                "starting_date":"21-Jan-2020",
-                "ending_date": "21-Aug-2020"
-            },
-            "isStarred": true,
-            "img":"http://127.0.0.1:5555/assets/images/imageMask-1.png",
-            "is_visiable": true,
-            "isExpire": false,
+            "student": 0,
+            "is_starred": true,
+            "img":"/assets/images/imageMask-2.png",
+            "is_expire": false,
             "action":{
-                "disableReport": true,
-                "disableSubmission":true
+                "disableSubmission":true,
+                "disableCourseManager":true
             }
     },
     {
-        "class_heading": "Acceleration",
+        "img":"/assets/images/imageMask-3.png",
+        "class_heading": "Introduction to Biology: Micro organisms and how they affec...",
         "cetegory": "Physics",
-        "grad": "Grade 7 +2",
+        "grad": "Grade 4 +1",
         "details": {
-            "number_of_unit": 4,
-            "number_of_lession": 12,
-            "number_of_topics": 24
+            "number_of_unit": 5,
+            "number_of_lession": 16,
+            "number_of_topics": 22
         } ,
-            "student": 0,
-            "course_duration": "",
-            "isStarred": false,
-            "img":"http://127.0.0.1:5555/assets/images/imageMask-1.png",
-            "isExpire": true,
+            "student": 300,
+            "is_starred": true,
             "action":{
-                "disablePreview":true,
-                "disableCourseManager":true
+                "disableCourseManager": true,
+                "disableSubmission":true
             }
+    },
+    
+    {
+        "img":"/assets/images/imageMask-1.png",
+        "is_starred": false,
+        "class_heading": "Introduction to High School Mathematics",
+        "cetegory": "Mathematics",
+        "grad": "Grade 8 +3",
+        "student": 44,
+        "course_duration":{
+            "starting_date" : "14-Oct-2019",
+            "ending_date":"20-Oct-2020"
+        },
+        "is_expire": true,
+        "options": [
+            "Mr. Frank's Class B",
+            "All Classes",
+            "Mr. Frank's Class A"
+        ]
+            
     }
 ]
