@@ -13,7 +13,7 @@ function loadCourseStatus(count) {
 }
 function loadClassDetails() {
     var container = document.querySelector(".card-container");
-    fetch("http://127.0.0.1:5555/data.json")
+    fetch("/data.json")
         .then(function (response) { return response.json(); })
         .then(function (data) {
         console.log(data);
@@ -69,6 +69,7 @@ var divs = document.querySelectorAll(".dropdown-list-container");
 divs.forEach(function (div) {
     div.addEventListener("click", function (event) {
         console.log(event.target);
+        closeAllDropdown(divs);
         var element;
         try {
             element = event.target;
@@ -82,17 +83,21 @@ divs.forEach(function (div) {
 function toggleDropdown(el) {
     var dropdown = el.querySelector(".dropdown-menu");
     var dropdown_icon = el.querySelector(".drop-down-arrow");
-    if (dropdown.classList.contains("display-block")) {
-        // el.style.backgroundColor = "#ffffff";
-        el.classList.remove("background-highlight");
-        dropdown.classList.remove("display-block");
-        dropdown_icon.style.backgroundImage = "url(\"/assets/screen_Assets/icons/dropdown-arrow-down.svg\")";
-    }
-    else {
-        // el.style.backgroundColor = "#f3f3f3";
-        el.classList.add("background-highlight");
-        dropdown.classList.add("display-block");
-        dropdown_icon.style.backgroundImage = "url(\"/assets/screen_Assets/icons/dropdown-arrow-up.svg\")";
-    }
+    el.classList.add("background-highlight");
+    dropdown.classList.add("display-block");
+    dropdown_icon.style.backgroundImage = "url(\"/assets/screen_Assets/icons/dropdown-arrow-up.svg\")";
+}
+function closeAllDropdown(divs) {
+    document.querySelectorAll(".dropdown-menu");
+    divs.forEach(function (el) {
+        var dropdown = el.querySelector(".dropdown-menu");
+        var dropdown_icon = el.querySelector(".drop-down-arrow");
+        if (dropdown.classList.contains("display-block")) {
+            // el.style.backgroundColor = "#ffffff";
+            el.classList.remove("background-highlight");
+            dropdown.classList.remove("display-block");
+            dropdown_icon.style.backgroundImage = "url(\"/assets/screen_Assets/icons/dropdown-arrow-down.svg\")";
+        }
+    });
 }
 //# sourceMappingURL=dashboard_ts_script.js.map

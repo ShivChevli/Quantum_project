@@ -43,7 +43,7 @@ function loadCourseStatus(count: number): void{
 function loadClassDetails(): void {
     let container = document.querySelector(".card-container") as HTMLDivElement;
 
-    fetch("http://127.0.0.1:5555/data.json")
+    fetch("/data.json")
         .then(response => response.json())
         .then((data:fetchdataType[]) => {
             console.log(data);
@@ -175,11 +175,12 @@ function updateAccouncementBadge(count: number): void{
     notification_badge.innerHTML = count +"";
 }
 
-let divs = document.querySelectorAll(".dropdown-list-container");
+let divs : NodeListOf<HTMLLIElement> = document.querySelectorAll<HTMLLIElement>(".dropdown-list-container");
 
 divs.forEach(div => {
     div.addEventListener("click", (event) => {
         console.log(event.target);
+        closeAllDropdown(divs);
         let element: HTMLLIElement;
         try {
             element = event.target as HTMLLIElement;
@@ -193,16 +194,22 @@ divs.forEach(div => {
 function toggleDropdown(el: HTMLLIElement) {
     let dropdown = el.querySelector(".dropdown-menu") as HTMLUListElement;
     let dropdown_icon = el.querySelector(".drop-down-arrow") as HTMLSpanElement;
-    if (dropdown.classList.contains("display-block")) {
-        // el.style.backgroundColor = "#ffffff";
-        el.classList.remove("background-highlight");
-        dropdown.classList.remove("display-block");
-        dropdown_icon.style.backgroundImage = `url("/assets/screen_Assets/icons/dropdown-arrow-down.svg")`;
-    }
-    else {
-        // el.style.backgroundColor = "#f3f3f3";
-        el.classList.add("background-highlight");
-        dropdown.classList.add("display-block");
-        dropdown_icon.style.backgroundImage = `url("/assets/screen_Assets/icons/dropdown-arrow-up.svg")`;
-    }
+    el.classList.add("background-highlight");
+    dropdown.classList.add("display-block");
+    dropdown_icon.style.backgroundImage = `url("/assets/screen_Assets/icons/dropdown-arrow-up.svg")`;
+}
+
+function closeAllDropdown(divs : NodeListOf<HTMLLIElement>){
+    document.querySelectorAll(".dropdown-menu")
+    divs.forEach(el => {
+        let dropdown = el.querySelector(".dropdown-menu") as HTMLUListElement;
+        let dropdown_icon = el.querySelector(".drop-down-arrow") as HTMLSpanElement;
+        if (dropdown.classList.contains("display-block")) {
+            // el.style.backgroundColor = "#ffffff";
+            el.classList.remove("background-highlight");
+            dropdown.classList.remove("display-block");
+            dropdown_icon.style.backgroundImage = `url("/assets/screen_Assets/icons/dropdown-arrow-down.svg")`;
+    
+        }
+    })
 }
