@@ -65,11 +65,34 @@ function updateNotificationBadge(count) {
 function updateAccouncementBadge(count) {
     notification_badge.innerHTML = count + "";
 }
-var btn = document.querySelector("#menu-toggle-btn");
-btn.addEventListener("click", function (event) {
-    toggle_menu();
+var divs = document.querySelectorAll(".dropdown-list-container");
+divs.forEach(function (div) {
+    div.addEventListener("click", function (event) {
+        console.log(event.target);
+        var element;
+        try {
+            element = event.target;
+            toggleDropdown(element);
+        }
+        catch (error) {
+            console.log("Error");
+        }
+    });
 });
-btn.addEventListener("blur", function () {
-    toggle_menu();
-});
+function toggleDropdown(el) {
+    var dropdown = el.querySelector(".dropdown-menu");
+    var dropdown_icon = el.querySelector(".drop-down-arrow");
+    if (dropdown.classList.contains("display-block")) {
+        // el.style.backgroundColor = "#ffffff";
+        el.classList.remove("background-highlight");
+        dropdown.classList.remove("display-block");
+        dropdown_icon.style.backgroundImage = "url(\"/assets/screen_Assets/icons/dropdown-arrow-down.svg\")";
+    }
+    else {
+        // el.style.backgroundColor = "#f3f3f3";
+        el.classList.add("background-highlight");
+        dropdown.classList.add("display-block");
+        dropdown_icon.style.backgroundImage = "url(\"/assets/screen_Assets/icons/dropdown-arrow-up.svg\")";
+    }
+}
 //# sourceMappingURL=dashboard_ts_script.js.map

@@ -14,7 +14,7 @@
     background-color: $white;
 
     .footer-option_link {
-      color: $submit_bg;
+      color: $dark_green;
       font-size: 16px;
       letter-spacing: 0px;
       padding: 0 15px;
@@ -22,7 +22,7 @@
     }
 
     .footer-option_link:nth-of-type(1) {
-      border-right: 1px solid $submit_bg;
+      border-right: 1px solid $dark_green;
     }
   }
 

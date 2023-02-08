@@ -175,12 +175,34 @@ function updateAccouncementBadge(count: number): void{
     notification_badge.innerHTML = count +"";
 }
 
+let divs = document.querySelectorAll(".dropdown-list-container");
 
-let btn = document.querySelector("#menu-toggle-btn") as HTMLButtonElement;
-btn.addEventListener("click", (event) => {
-    toggle_menu();
+divs.forEach(div => {
+    div.addEventListener("click", (event) => {
+        console.log(event.target);
+        let element: HTMLLIElement;
+        try {
+            element = event.target as HTMLLIElement;
+            toggleDropdown(element);
+        } catch (error) {
+            console.log("Error");
+        }
+      })
 })
 
-btn.addEventListener("blur", () => {
-    toggle_menu();
-})
+function toggleDropdown(el: HTMLLIElement) {
+    let dropdown = el.querySelector(".dropdown-menu") as HTMLUListElement;
+    let dropdown_icon = el.querySelector(".drop-down-arrow") as HTMLSpanElement;
+    if (dropdown.classList.contains("display-block")) {
+        // el.style.backgroundColor = "#ffffff";
+        el.classList.remove("background-highlight");
+        dropdown.classList.remove("display-block");
+        dropdown_icon.style.backgroundImage = `url("/assets/screen_Assets/icons/dropdown-arrow-down.svg")`;
+    }
+    else {
+        // el.style.backgroundColor = "#f3f3f3";
+        el.classList.add("background-highlight");
+        dropdown.classList.add("display-block");
+        dropdown_icon.style.backgroundImage = `url("/assets/screen_Assets/icons/dropdown-arrow-up.svg")`;
+    }
+}

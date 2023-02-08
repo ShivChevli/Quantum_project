@@ -14,7 +14,7 @@ $gray: #616161;
 $light_gray: #6e6e6e;
 $bg_green: #3fd28b;
 $bg_light_green: #8ddc97;
-$submit_bg: #1f7a54;
+$dark_green: #1f7a54;
 $underline_blue: #31b9e4;
 $expire_lable_red: #d80000;
 $expire_lable_red_bg: #ffe4e6;
@@ -60,7 +60,7 @@ body {
   }
 }
 .input-div-forgot-link {
-  color: $submit_bg;
+  color: $dark_green;
   font-size: 14px;
   display: block;
   text-decoration: no;
@@ -91,7 +91,9 @@ body {
 .font-small {
   font-size: 12px;
 }
-
-#announcements-list {
-  display: none;
+.display-block {
+  display: block !important;
+}
+.background-highlight {
+  background-color: #f3f3f3;
 }
