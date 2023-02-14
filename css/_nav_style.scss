@@ -58,15 +58,19 @@
         position: relative;
       }
       .information-box {
-        display: none;
+        // display: none;
         position: absolute;
         top: 100%;
         right: 0;
         z-index: 5;
         background-color: $pure_white;
         width: 315px;
+        overflow: hidden;
+        height: 0;
         max-height: 582px;
         box-shadow: 0px 3px 6px #00000029;
+        transition: height 250ms ease-in;
+        // animation-fill-mode: forwards;
 
         .alert-list {
           max-height: 534px;
@@ -133,6 +137,9 @@
 
               label {
                 color: $light_gray;
+              }
+              span {
+                color: $blank;
               }
             }
             .list-content {
@@ -217,13 +224,40 @@
           display: none;
         }
         .information-box {
-          display: block;
+          // display: block;
+          // transition: 1s;
+          // height: 500px;
+          height: 582px;
+          // max-height: fit-content;
+          // overflow: visible;
+          // animation: openMenue 0.5s ease-in 0 1 forwards forwards;
+          // animation: openMenue 0.5s ease-in forwards;
+          // animation-fill-mode: forwards;
+          // transition: ease-in-out;
+          // display: block;
         }
       }
     }
   }
 }
 
+@keyframes openMenue {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: fit-content !important;
+  }
+}
+
+@keyframes closeMenue {
+  0% {
+    height: auto;
+  }
+  100% {
+    height: 0;
+  }
+}
 .header {
   @include textCenter();
   background-image: url("../assets/header_pattern_image.png");

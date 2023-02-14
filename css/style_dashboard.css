@@ -84,6 +84,23 @@ body {
   background-color: #f3f3f3;
 }
 
+@keyframes openMenue {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: -moz-fit-content !important;
+    height: fit-content !important;
+  }
+}
+@keyframes closeMenue {
+  0% {
+    height: auto;
+  }
+  100% {
+    height: 0;
+  }
+}
 .header {
   display: flex;
   align-items: center;
@@ -176,15 +193,17 @@ body {
 }
 .header .navbar .navbar-toolbox li .information-box,
 .header .navbar .navbar-menu li .information-box {
-  display: none;
   position: absolute;
   top: 100%;
   right: 0;
   z-index: 5;
   background-color: #ffffff;
   width: 315px;
+  overflow: hidden;
+  height: 0;
   max-height: 582px;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  transition: height 250ms ease-in;
 }
 .header .navbar .navbar-toolbox li .information-box .alert-list,
 .header .navbar .navbar-menu li .information-box .alert-list {
@@ -266,6 +285,10 @@ body {
 .header .navbar .navbar-menu li .information-box .alert-list .alert-list-item .list-top label {
   color: #6e6e6e;
 }
+.header .navbar .navbar-toolbox li .information-box .alert-list .alert-list-item .list-top span,
+.header .navbar .navbar-menu li .information-box .alert-list .alert-list-item .list-top span {
+  color: #222222;
+}
 .header .navbar .navbar-toolbox li .information-box .alert-list .alert-list-item .list-content,
 .header .navbar .navbar-menu li .information-box .alert-list .alert-list-item .list-content {
   display: flex;
@@ -337,7 +360,7 @@ body {
   display: none;
 }
 .header .navbar .navbar-toolbox li:hover .information-box {
-  display: block;
+  height: 582px;
 }
 .header .navbar .toggle-btn {
   background: none;
