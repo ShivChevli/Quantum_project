@@ -1,3 +1,4 @@
+import {POPUP_List} from "./popup_list.js";
 let notification_badge = document.querySelector("#notification-badge");
 interface fetchdataType{
     class_heading: string,
@@ -46,7 +47,7 @@ function loadClassDetails(): void {
     fetch("/data.json")
         .then(response => response.json())
         .then((data:fetchdataType[]) => {
-            console.log(data);
+            // console.log(data);
             loadCourseStatus(data.length);
 
             data.map((item) => {
@@ -64,9 +65,9 @@ function loadClassDetails(): void {
                 let grad_section = ""; 
                 if (item.grad) {
                     let tmp = item.grad.split("+");
-                    console.log("Tmp");
-                    console.log(tmp);
-                    console.log(item.grad);
+                    // console.log("Tmp");
+                    // console.log(tmp);
+                    // console.log(item.grad);
                     let tmp1 = tmp[1] !== undefined ? `<span class="text-green"> ${'+'+tmp[1]}</span>` : "";
                     grad_section = `<span class="data-seprator">${tmp[0]} ${tmp1}</span>`;
                 }
@@ -179,7 +180,7 @@ let divs : NodeListOf<HTMLLIElement> = document.querySelectorAll<HTMLLIElement>(
 
 divs.forEach(div => {
     div.addEventListener("click", (event) => {
-        console.log(event.target);
+        // console.log(event.target);
         closeAllDropdown(divs);
         let element: HTMLLIElement;
         try {
@@ -213,3 +214,34 @@ function closeAllDropdown(divs : NodeListOf<HTMLLIElement>){
         }
     })
 }
+
+let notification: HTMLSpanElement = document.querySelector("#notification-trigger-btn");
+let notification_list: HTMLDivElement = document.querySelector("#notification-list");
+let announcement: HTMLSpanElement = document.querySelector("#announcement-trigger-btn");
+let announcement_list: HTMLDivElement = document.querySelector("#announcements-list");
+
+// notification.addEventListener("click", () => {
+//     notification.setAttribute("aria-expanded", "true");
+//     notification_list.classList.add("show-list");
+//     console.log(notification.parentElement);
+// });
+// notification.parentElement.addEventListener("focusout", event => {
+//     notification.setAttribute("aria-expanded", "false");
+//     notification_list.classList.remove("show-list");
+// })
+
+// announcement.addEventListener("click", () => {
+//     announcement.setAttribute("aria-expanded", "true");
+//     announcement_list.classList.add("show-list");
+//     console.log(announcement.parentElement);
+// });
+// announcement.parentElement.addEventListener("focusout", event => {
+//     announcement.setAttribute("aria-expanded", "false");
+//     announcement_list.classList.remove("show-list");
+// })
+
+let notification_popup:POPUP_List = new POPUP_List(notification, notification_list);
+notification_popup.init();
+
+let announcement_popup: POPUP_List = new POPUP_List(announcement, announcement_list);
+announcement_popup.init();

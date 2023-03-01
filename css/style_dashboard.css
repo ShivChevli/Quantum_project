@@ -84,6 +84,19 @@ body {
   background-color: #f3f3f3;
 }
 
+.skip-link {
+  position: absolute;
+  left: 0;
+  top: -100px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: #8ddc97;
+  color: #222222;
+}
+.skip-link:focus {
+  top: 0;
+}
+
 @keyframes openMenue {
   0% {
     height: 0;
@@ -360,6 +373,9 @@ body {
   display: none;
 }
 .header .navbar .navbar-toolbox li:hover .information-box {
+  height: 582px;
+}
+.header .navbar .navbar-toolbox li .show-list {
   height: 582px;
 }
 .header .navbar .toggle-btn {

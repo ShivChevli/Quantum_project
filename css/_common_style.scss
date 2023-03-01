@@ -97,3 +97,16 @@ body {
 .background-highlight {
   background-color: #f3f3f3;
 }
+
+.skip-link {
+  position: absolute;
+  left: 0;
+  top: -100px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: $bg_light_green;
+  color: $blank;
+  &:focus {
+    top: 0;
+  }
+}

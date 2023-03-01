@@ -9,33 +9,35 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preload" href="assets/Quicksand font 1/Quicksand-VariableFont_wght.ttf" as="font" type="font/ttf"
         crossorigin="anonymous">
+        <meta name="description" content="Quantum Portal login form">
+        <meta name="keywords" content="Quantum, Quantum Login, Quantum Protal, quantum, quantum protal, quantum portal login, quantum login form">
     <title>login </title>
 </head>
 
 <body>
-    <div class="header">
+    <header class="header">
         <div class="fram-container">
             <a href="#">
                 <img class="header-logo" src="assets/icons/logo used in header.svg" alt="Quantun Logo">
             </a>
         </div>
-    </div>
-    <div class="content-body">
-        <div class="login-container">
+    </header>
+    <main class="content-body">
+        <section class="login-container" aria-labelledby="login-heading" >
             <div class="login-header">
-                <a href="" class="back-btn-link">
-                    <img src="assets/icons/back.svg" alt="back button ">
+                <a href="#" class="back-btn-link">
+                    <img src="assets/icons/back.svg" alt="back button">
                 </a>
-                <h1 class="login-heading">
+                <h1 class="login-heading" id="login-heading">
                     Log in with Quantun
                 </h1>
             </div>
 
             <div class="login-body">
-                <form action="">
+                <form action="" aria-labelledby="login-heading">
                     <div class="select-btn-group">
                         <div class="select-btn-container">
-                            <input type="radio" id="district_school" value="district" name="school_type">
+                            <input type="radio" autofocus id="district_school" value="district" name="school_type">
                             <label for="district_school">District</label>
                         </div>
                         <div class="select-btn-container">
@@ -67,19 +69,19 @@
                     </div>
 
                     <div class="input-div--normal_margin">
-                        <input type="text" name="user_id" class="input-div--control" placeholder="User Name/ Email id*">
-                        <a href="" class="input-div-forgot-link">Forgot Username?</a>
+                        <input type="text" aria-label="User name" name="user_id" class="input-div--control" placeholder="User Name/ Email id*">
+                        <a href="#" class="input-div-forgot-link">Forgot Username?</a>
                     </div>
 
                     <div class="input-div--less-margin">
                         <div class="input-div--password-div">
-                            <input type="password" name="pwd" class="input-div--control input-div--pwd"
+                            <input type="password" aria-label="User Password" name="pwd" class="input-div--control input-div--pwd"
                                 placeholder="Password*">
-                            <button class="show-btn" type="button">
+                            <button class="show-btn" role="button" aria-label="Show Password" type="button">
                                 <img src="assets/icons/preview.svg" alt="">
                             </button>
                         </div>
-                        <a href="" class="input-div-forgot-link">Forgot password?</a>
+                        <a href="#" class="input-div-forgot-link">Forgot password?</a>
                     </div>
 
                     <div class="select-btn-container input-div--normal_margin">
@@ -92,9 +94,9 @@
                     </button>
                 </form>
             </div>
-        </div>
-    </div>
-    <div class="footer">
+        </section>
+    </main>
+    <footer class="footer">
         <div class="footer-option_div">
             <a href="" class="footer-option_link">About</a>
             <a href="" class="footer-option_link">Contect Us</a>
@@ -105,7 +107,7 @@
             <span class="footer-content--span util-bold-font">Zeus System Pvt. Ltd.</span>
             <span class="footer-content--span">All right reserved</span>
         </div>
-    </div>
+    </footer>
     <script src="js/login_script.js" defer></script>
 </body>
 

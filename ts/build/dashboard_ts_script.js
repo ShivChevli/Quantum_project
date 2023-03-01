@@ -1,3 +1,4 @@
+import { POPUP_List } from "./popup_list.js";
 var notification_badge = document.querySelector("#notification-badge");
 function loadCourseStatus(count) {
     var total = document.querySelector("#total-courses");
@@ -16,7 +17,7 @@ function loadClassDetails() {
     fetch("/data.json")
         .then(function (response) { return response.json(); })
         .then(function (data) {
-        console.log(data);
+        // console.log(data);
         loadCourseStatus(data.length);
         data.map(function (item) {
             var stared_Section = item.is_starred ?
@@ -25,9 +26,9 @@ function loadClassDetails() {
             var grad_section = "";
             if (item.grad) {
                 var tmp = item.grad.split("+");
-                console.log("Tmp");
-                console.log(tmp);
-                console.log(item.grad);
+                // console.log("Tmp");
+                // console.log(tmp);
+                // console.log(item.grad);
                 var tmp1 = tmp[1] !== undefined ? "<span class=\"text-green\"> ".concat('+' + tmp[1], "</span>") : "";
                 grad_section = "<span class=\"data-seprator\">".concat(tmp[0], " ").concat(tmp1, "</span>");
             }
@@ -68,7 +69,7 @@ function updateAccouncementBadge(count) {
 var divs = document.querySelectorAll(".dropdown-list-container");
 divs.forEach(function (div) {
     div.addEventListener("click", function (event) {
-        console.log(event.target);
+        // console.log(event.target);
         closeAllDropdown(divs);
         var element;
         try {
@@ -100,4 +101,30 @@ function closeAllDropdown(divs) {
         }
     });
 }
+var notification = document.querySelector("#notification-trigger-btn");
+var notification_list = document.querySelector("#notification-list");
+var announcement = document.querySelector("#announcement-trigger-btn");
+var announcement_list = document.querySelector("#announcements-list");
+// notification.addEventListener("click", () => {
+//     notification.setAttribute("aria-expanded", "true");
+//     notification_list.classList.add("show-list");
+//     console.log(notification.parentElement);
+// });
+// notification.parentElement.addEventListener("focusout", event => {
+//     notification.setAttribute("aria-expanded", "false");
+//     notification_list.classList.remove("show-list");
+// })
+// announcement.addEventListener("click", () => {
+//     announcement.setAttribute("aria-expanded", "true");
+//     announcement_list.classList.add("show-list");
+//     console.log(announcement.parentElement);
+// });
+// announcement.parentElement.addEventListener("focusout", event => {
+//     announcement.setAttribute("aria-expanded", "false");
+//     announcement_list.classList.remove("show-list");
+// })
+var notification_popup = new POPUP_List(notification, notification_list);
+notification_popup.init();
+var announcement_popup = new POPUP_List(announcement, announcement_list);
+announcement_popup.init();
 //# sourceMappingURL=dashboard_ts_script.js.map
