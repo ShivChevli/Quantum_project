@@ -154,8 +154,6 @@ export class POPUP_List {
         case "ArrowUp":
           let t = this.active_action_btn_index === -1 ? 0 : this.active_action_btn_index;
           this.setFocusToNotification(null);
-          console.log(this.footerBtn);
-          console.log("t: ", t);
           this.setActionBtn(this.footerBtn[t]);
           this.active_action_btn_index = t;
           break;
@@ -262,6 +260,11 @@ export class POPUP_List {
           console.log("Active Btn");
           break;
 
+        // case "Tab":
+        //   console.log("Tab Btn click")
+        //   this.setFocusToFirstNotification();
+        //   break;
+        
         case "ArrowDown":
         case "Down":
           t++;

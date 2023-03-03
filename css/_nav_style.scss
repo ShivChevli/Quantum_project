@@ -300,6 +300,10 @@
           width: 24px;
           height: 24px;
         }
+
+        &[aria-expanded="true"] {
+          color: #f3f3f3;
+        }
       }
 
       &:hover {
@@ -325,9 +329,11 @@
         .main-menu {
           list-style: none;
           text-transform: uppercase;
+          ul {
+            padding: 0px 16px;
+          }
           li {
             display: block;
-            padding: 15px 16px;
             // text-align: center;
 
             &:hover {
@@ -359,10 +365,13 @@
           }
 
           a {
+            display: block;
             color: $dark_green;
             text-decoration: none;
+            padding: 15px 16px;
 
             &:focus {
+              background-color: #f3f3f3;
               outline: 1px solid $dark_green;
             }
           }

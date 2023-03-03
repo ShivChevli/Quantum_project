@@ -177,44 +177,46 @@ function updateAccouncementBadge(count: number): void{
     notification_badge.innerHTML = count +"";
 }
 
-let divs : NodeListOf<HTMLLIElement> = document.querySelectorAll<HTMLLIElement>(".dropdown-list-container");
+// let divs : NodeListOf<HTMLLIElement> = document.querySelectorAll<HTMLLIElement>(".dropdown-list-container");
 
-divs.forEach(div => {
-    div.addEventListener("click", (event) => {
-        // console.log(event.target);
-        closeAllDropdown(divs);
-        let element: HTMLLIElement;
-        try {
-            element = event.target as HTMLLIElement;
-            toggleDropdown(element);
-        } catch (error) {
-            console.log("Error");
-        }
-      })
-})
+// divs.forEach(div => {
+//     div.addEventListener("click", (event) => {
+//         // console.log(event.target);
+//         closeAllDropdown(divs);
+//         let element: HTMLLIElement;
+//         try {
+//             element = event.target as HTMLLIElement;
+//             toggleDropdown(element);
+//         } catch (error) {
+//             console.log("Error");
+//             console.log(error);
+//         }
+//       })
+// })
 
-function toggleDropdown(el: HTMLLIElement) {
-    let dropdown = el.querySelector(".dropdown-menu") as HTMLUListElement;
-    let dropdown_icon = el.querySelector(".drop-down-arrow") as HTMLSpanElement;
-    el.classList.add("background-highlight");
-    dropdown.classList.add("display-block");
-    dropdown_icon.style.backgroundImage = `url("/assets/screen_Assets/icons/dropdown-arrow-up.svg")`;
-}
+// function toggleDropdown(el: HTMLLIElement) {
+//     console.log(el);
+//     let dropdown = el.parentElement.querySelector(".dropdown-menu") as HTMLUListElement;
+//     let dropdown_icon = el.querySelector(".drop-down-arrow") as HTMLSpanElement;
+//     el.classList.add("background-highlight");
+//     dropdown.classList.add("display-block");
+//     dropdown_icon.style.backgroundImage = `url("/assets/screen_Assets/icons/dropdown-arrow-up.svg")`;
+// }
 
-function closeAllDropdown(divs : NodeListOf<HTMLLIElement>){
-    document.querySelectorAll(".dropdown-menu")
-    divs.forEach(el => {
-        let dropdown = el.querySelector(".dropdown-menu") as HTMLUListElement;
-        let dropdown_icon = el.querySelector(".drop-down-arrow") as HTMLSpanElement;
-        if (dropdown.classList.contains("display-block")) {
-            // el.style.backgroundColor = "#ffffff";
-            el.classList.remove("background-highlight");
-            dropdown.classList.remove("display-block");
-            dropdown_icon.style.backgroundImage = `url("/assets/screen_Assets/icons/dropdown-arrow-down.svg")`;
+// function closeAllDropdown(divs : NodeListOf<HTMLLIElement>){
+//     document.querySelectorAll(".dropdown-menu")
+//     divs.forEach(el => {
+//         let dropdown = el.querySelector(".dropdown-menu") as HTMLUListElement;
+//         let dropdown_icon = el.querySelector(".drop-down-arrow") as HTMLSpanElement;
+//         if (dropdown.classList.contains("display-block")) {
+//             // el.style.backgroundColor = "#ffffff";
+//             el.classList.remove("background-highlight");
+//             dropdown.classList.remove("display-block");
+//             dropdown_icon.style.backgroundImage = `url("/assets/screen_Assets/icons/dropdown-arrow-down.svg")`;
     
-        }
-    })
-}
+//         }
+//     })
+// }
 
 let notification: HTMLSpanElement = document.querySelector("#notification-trigger-btn");
 let notification_list: HTMLDivElement = document.querySelector("#notification-list");

@@ -394,6 +394,9 @@ body {
   width: 24px;
   height: 24px;
 }
+.header .navbar .toggle-btn .toggle-btn-span[aria-expanded=true] {
+  color: #f3f3f3;
+}
 .header .navbar .toggle-btn:hover {
   cursor: pointer;
   color: #f3f3f3;
@@ -416,9 +419,11 @@ body {
   list-style: none;
   text-transform: uppercase;
 }
+.header .navbar .toggle-btn .mobile-menu-div .main-menu ul {
+  padding: 0px 16px;
+}
 .header .navbar .toggle-btn .mobile-menu-div .main-menu li {
   display: block;
-  padding: 15px 16px;
 }
 .header .navbar .toggle-btn .mobile-menu-div .main-menu li:hover {
   background-color: #f3f3f3;
@@ -442,10 +447,13 @@ body {
   display: none;
 }
 .header .navbar .toggle-btn .mobile-menu-div .main-menu a {
+  display: block;
   color: #1f7a54;
   text-decoration: none;
+  padding: 15px 16px;
 }
 .header .navbar .toggle-btn .mobile-menu-div .main-menu a:focus {
+  background-color: #f3f3f3;
   outline: 1px solid #1f7a54;
 }
 .header .navbar .toggle-btn .show {
