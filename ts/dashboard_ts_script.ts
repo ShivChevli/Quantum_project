@@ -1,4 +1,5 @@
-import {POPUP_List} from "./popup_list.js";
+import { POPUP_List } from "./popup_list.js";
+import { MobileMenu } from "./mobile_menu.js";
 let notification_badge = document.querySelector("#notification-badge");
 interface fetchdataType{
     class_heading: string,
@@ -128,7 +129,7 @@ function loadClassDetails(): void {
                     <div class="card-div">
                     ${item.is_expire ? "<span class='status-lable'>Expired</span>" : ""}
                         <div class="card-body">
-                            <img class="card-body--img" src="${item.img}" alt="Acceleration image">
+                            <img class="card-body--img" src="${item.img}" alt="">
                             <div class="card-content-detail">
                                 <h2 class="card-header">
                                     <span class="card-heading">
@@ -245,3 +246,6 @@ notification_popup.init();
 
 let announcement_popup: POPUP_List = new POPUP_List(announcement, announcement_list);
 announcement_popup.init();
+
+
+let mobile_menu: MobileMenu = new MobileMenu(document.querySelector("#menu-toggle-btn"));

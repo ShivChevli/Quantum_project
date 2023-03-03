@@ -336,7 +336,7 @@ body {
   padding: 9px 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.2392156863);
 }
 .header .navbar .navbar-toolbox li .information-box .action-btn-div span,
 .header .navbar .navbar-menu li .information-box .action-btn-div span {
@@ -432,6 +432,9 @@ body {
 }
 .header .navbar .toggle-btn .mobile-menu-div .main-menu .dropdown-list-container .dropdown-menu {
   display: none;
+}
+.header .navbar .toggle-btn .show {
+  display: block;
 }
 
 @media screen and (max-width: 768px) {
