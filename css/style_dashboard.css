@@ -383,8 +383,16 @@ body {
   border: none;
   display: none;
   position: relative;
-  padding: 11px 0 11px 16px;
   color: #1f7a54;
+}
+.header .navbar .toggle-btn .toggle-btn-span {
+  z-index: 4;
+  display: inline-block;
+  padding: 11px 0 11px 16px;
+}
+.header .navbar .toggle-btn .toggle-btn-span svg {
+  width: 24px;
+  height: 24px;
 }
 .header .navbar .toggle-btn:hover {
   cursor: pointer;
@@ -432,6 +440,13 @@ body {
 }
 .header .navbar .toggle-btn .mobile-menu-div .main-menu .dropdown-list-container .dropdown-menu {
   display: none;
+}
+.header .navbar .toggle-btn .mobile-menu-div .main-menu a {
+  color: #1f7a54;
+  text-decoration: none;
+}
+.header .navbar .toggle-btn .mobile-menu-div .main-menu a:focus {
+  outline: 1px solid #1f7a54;
 }
 .header .navbar .toggle-btn .show {
   display: block;

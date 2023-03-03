@@ -290,8 +290,17 @@
       border: none;
       display: none;
       position: relative;
-      padding: 11px 0 11px 16px;
       color: $dark_green;
+
+      .toggle-btn-span {
+        z-index: 4;
+        display: inline-block;
+        padding: 11px 0 11px 16px;
+        svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
 
       &:hover {
         cursor: pointer;
@@ -346,6 +355,15 @@
             }
             .dropdown-menu {
               display: none;
+            }
+          }
+
+          a {
+            color: $dark_green;
+            text-decoration: none;
+
+            &:focus {
+              outline: 1px solid $dark_green;
             }
           }
         }
