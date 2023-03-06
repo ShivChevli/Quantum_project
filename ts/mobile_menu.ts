@@ -6,6 +6,7 @@ export class MobileMenu {
     active_index_stack: Array<HTMLAnchorElement>;
     active_menu: Array<HTMLAnchorElement>;
     menu_stack: Array<Array<HTMLAnchorElement>>;
+    first_char_array: Array<string>;
 
     // menuitems: HTMLElement[];
     // popups: HTMLElement[];
@@ -33,7 +34,6 @@ export class MobileMenu {
         this.menu_stack = [];
         this.active_index_stack = [];
         this.active_menu = null;
-
   
         let tmp = this.menu.querySelectorAll("a");
         tmp.forEach(el => {
@@ -46,7 +46,7 @@ export class MobileMenu {
         let main_menu = this.getMenuLinks(main_ul);
         console.log("Link Got from Function");
         console.log(main_menu);
-        this.active_menu = main_menu;
+        this.active_menu = main_menu["menu_links"];
     }
 
     onMenuLinkClick(event:MouseEvent) {
@@ -68,25 +68,21 @@ export class MobileMenu {
             case "Down":
                 console.log("Case 1");
                 this.openMenu();
-                // this.setFocusToFirstNotification();
                 flag = true;
                 break;
 
             case "Esc":
             case "Escape":
-                // console.log("Notifation close");
                 console.log("Case 2");
                 this.closeMenu();
-                // this.trigger.focus();
+                this.button.focus();
                 flag = true;
                 break;
 
             case "Up":
             case "ArrowUp":
-                // console.log("Notifation Open");
                 console.log("Case 3");
                 this.openMenu();
-                // this.setFocusToLastNotification();
                 flag = true;
                 break;
 
@@ -104,7 +100,7 @@ export class MobileMenu {
     }
 
     onLinkKeydown(event) {
-        console.log("Notification Keydown Event called");
+        // console.log("Notification Keydown Event called");
         var tgt = event.currentTarget as HTMLAnchorElement,
             key = event.key,
             flag = false;
@@ -116,11 +112,19 @@ export class MobileMenu {
 
         if (event.shiftKey) {
 
-            if (event.key === "Tab") {
-                this.button.focus();
-                this.closeMenu();
-                flag = true;
+            switch (key) {
+                case "Tab":
+                    this.button.focus();
+                    this.closeMenu();
+                    flag = true;    
+                    break;
+                
+                default:
+                    let tmp = key.toString();
+                    this.changePreviousMenuLinkByCharature(tmp.toLowerCase());
+                    break;
             }
+
         } else {
             switch (key) {
                 case " ":
@@ -169,25 +173,24 @@ export class MobileMenu {
 
                 case "Home":
                 case "PageUp":
-                    console.log("case 5");
-                    // this.setFocusToFirstNotification();
+                    this.changeToFirstMenuLink();
                     flag = true;
                     break;
 
                 case "End":
                 case "PageDown":
-                    console.log("case 6");
-                    // this.setFocusToLastNotification();
+                    this.changeToLastMenuLink();
                     flag = true;
                     break;
 
                 case "Tab":
-                    console.log("case 7");
                     this.closeMenu();
+                    this.button.focus();
                     break;
 
                 default:
-                    console.log("Default Case");
+                    let tmp = key.toString();
+                    this.changeNextMenuLinkByCharature(tmp);
                     console.log(key);
                     break;
             }
@@ -223,6 +226,77 @@ export class MobileMenu {
     
     }
 
+    changeNextMenuLinkByCharature(char: string) {
+        let i = 0;
+        let tmp;
+        let flag = false;
+
+        // link after active Link
+        for (i = this.active_index+1; i < this.active_menu.length; i++){
+            tmp = this.active_menu[i].innerHTML.trim().toLowerCase()[0];
+            if (tmp === char) {
+                this.active_index = i;
+                this.setMenuLinkFocus(this.active_menu[i]);
+                flag = true;
+                break;
+            }
+        }
+
+        //links before active Links 
+        if (!flag) {   
+            for (i = 0; i <= this.active_index; i++){
+                tmp = this.active_menu[i].innerHTML.trim().toLowerCase()[0];
+                if (tmp === char) {
+                    this.active_index = i;
+                    this.setMenuLinkFocus(this.active_menu[i]);
+                    break;
+                }
+            }
+        }
+
+    }
+
+    changePreviousMenuLinkByCharature(char: string) {
+        let i = 0;
+        let tmp;
+        let flag = false;
+
+        // link after active Link
+        for (i = this.active_index - 1; i >= 0; i--){
+            tmp = this.active_menu[i].innerHTML.trim().toLowerCase()[0];
+            if (tmp === char) {
+                this.active_index = i;
+                this.setMenuLinkFocus(this.active_menu[i]);
+                flag = true;
+                break;
+            }
+        }
+
+        //links before active Links 
+        if (!flag) {   
+            for (i = this.active_menu.length -1 ; i >= this.active_index; i--){
+                tmp = this.active_menu[i].innerHTML.trim().toLowerCase()[0];
+                if (tmp === char) {
+                    this.active_index = i;
+                    this.setMenuLinkFocus(this.active_menu[i]);
+                    break;
+                }
+            }                
+        }
+
+    }
+    
+    changeToLastMenuLink() {
+        let t = this.active_menu.length - 1;
+        this.active_index = t;
+        this.setMenuLinkFocus(this.active_menu[t]);
+    }
+
+    changeToFirstMenuLink() {
+        this.active_index = 0;
+        this.setMenuLinkFocus(this.active_menu[0]);    
+    }
+
     openSubMenu(element:HTMLAnchorElement) {
         
         let submenu = null;
@@ -240,7 +314,7 @@ export class MobileMenu {
             
             this.menu_stack.push(this.active_menu);
             this.active_index_stack.push(this.active_menu[this.active_index]);
-            this.active_menu = submenu;
+            this.active_menu = submenu["menu_links"];
             this.active_index = -1;
 
             element.setAttribute("aria-expanded", "true");
@@ -302,14 +376,14 @@ export class MobileMenu {
     }
 
     getMenuLinks(element: HTMLUListElement) {
-        let tmpMenu = [];
+        let tmpMenu: Array<HTMLAnchorElement> = [];
         let t2 = element.querySelectorAll("li > a");
         t2.forEach((el:HTMLAnchorElement) => {
             if (el.parentElement.parentElement === element) {
                 tmpMenu.push(el);
             }
         })
-        return tmpMenu;
+        return { "menu_links": tmpMenu };
     }
 
     setMenuLinkFocus(newActiveLink:HTMLAnchorElement) {

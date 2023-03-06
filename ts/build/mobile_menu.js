@@ -33,7 +33,7 @@ var MobileMenu = /** @class */ (function () {
         var main_menu = this.getMenuLinks(main_ul);
         console.log("Link Got from Function");
         console.log(main_menu);
-        this.active_menu = main_menu;
+        this.active_menu = main_menu["menu_links"];
     }
     MobileMenu.prototype.onMenuLinkClick = function (event) {
         var tgt = event.target;
@@ -51,23 +51,19 @@ var MobileMenu = /** @class */ (function () {
             case "Down":
                 console.log("Case 1");
                 this.openMenu();
-                // this.setFocusToFirstNotification();
                 flag = true;
                 break;
             case "Esc":
             case "Escape":
-                // console.log("Notifation close");
                 console.log("Case 2");
                 this.closeMenu();
-                // this.trigger.focus();
+                this.button.focus();
                 flag = true;
                 break;
             case "Up":
             case "ArrowUp":
-                // console.log("Notifation Open");
                 console.log("Case 3");
                 this.openMenu();
-                // this.setFocusToLastNotification();
                 flag = true;
                 break;
             default:
@@ -82,16 +78,22 @@ var MobileMenu = /** @class */ (function () {
         }
     };
     MobileMenu.prototype.onLinkKeydown = function (event) {
-        console.log("Notification Keydown Event called");
+        // console.log("Notification Keydown Event called");
         var tgt = event.currentTarget, key = event.key, flag = false;
         // if (event.ctrlKey || event.altKey || event.metaKey) {
         //     return;
         // }
         if (event.shiftKey) {
-            if (event.key === "Tab") {
-                this.button.focus();
-                this.closeMenu();
-                flag = true;
+            switch (key) {
+                case "Tab":
+                    this.button.focus();
+                    this.closeMenu();
+                    flag = true;
+                    break;
+                default:
+                    var tmp = key.toString();
+                    this.changePreviousMenuLinkByCharature(tmp.toLowerCase());
+                    break;
             }
         }
         else {
@@ -134,22 +136,21 @@ var MobileMenu = /** @class */ (function () {
                     break;
                 case "Home":
                 case "PageUp":
-                    console.log("case 5");
-                    // this.setFocusToFirstNotification();
+                    this.changeToFirstMenuLink();
                     flag = true;
                     break;
                 case "End":
                 case "PageDown":
-                    console.log("case 6");
-                    // this.setFocusToLastNotification();
+                    this.changeToLastMenuLink();
                     flag = true;
                     break;
                 case "Tab":
-                    console.log("case 7");
                     this.closeMenu();
+                    this.button.focus();
                     break;
                 default:
-                    console.log("Default Case");
+                    var tmp = key.toString();
+                    this.changeNextMenuLinkByCharature(tmp);
                     console.log(key);
                     break;
             }
@@ -179,6 +180,67 @@ var MobileMenu = /** @class */ (function () {
         this.active_index = tmp;
         this.setMenuLinkFocus(this.active_menu[this.active_index]);
     };
+    MobileMenu.prototype.changeNextMenuLinkByCharature = function (char) {
+        var i = 0;
+        var tmp;
+        var flag = false;
+        // link after active Link
+        for (i = this.active_index + 1; i < this.active_menu.length; i++) {
+            tmp = this.active_menu[i].innerHTML.trim().toLowerCase()[0];
+            if (tmp === char) {
+                this.active_index = i;
+                this.setMenuLinkFocus(this.active_menu[i]);
+                flag = true;
+                break;
+            }
+        }
+        //links before active Links 
+        if (!flag) {
+            for (i = 0; i <= this.active_index; i++) {
+                tmp = this.active_menu[i].innerHTML.trim().toLowerCase()[0];
+                if (tmp === char) {
+                    this.active_index = i;
+                    this.setMenuLinkFocus(this.active_menu[i]);
+                    break;
+                }
+            }
+        }
+    };
+    MobileMenu.prototype.changePreviousMenuLinkByCharature = function (char) {
+        var i = 0;
+        var tmp;
+        var flag = false;
+        // link after active Link
+        for (i = this.active_index - 1; i >= 0; i--) {
+            tmp = this.active_menu[i].innerHTML.trim().toLowerCase()[0];
+            if (tmp === char) {
+                this.active_index = i;
+                this.setMenuLinkFocus(this.active_menu[i]);
+                flag = true;
+                break;
+            }
+        }
+        //links before active Links 
+        if (!flag) {
+            for (i = this.active_menu.length - 1; i >= this.active_index; i--) {
+                tmp = this.active_menu[i].innerHTML.trim().toLowerCase()[0];
+                if (tmp === char) {
+                    this.active_index = i;
+                    this.setMenuLinkFocus(this.active_menu[i]);
+                    break;
+                }
+            }
+        }
+    };
+    MobileMenu.prototype.changeToLastMenuLink = function () {
+        var t = this.active_menu.length - 1;
+        this.active_index = t;
+        this.setMenuLinkFocus(this.active_menu[t]);
+    };
+    MobileMenu.prototype.changeToFirstMenuLink = function () {
+        this.active_index = 0;
+        this.setMenuLinkFocus(this.active_menu[0]);
+    };
     MobileMenu.prototype.openSubMenu = function (element) {
         var submenu = null;
         if (element.getAttribute("aria-haspopup") === "true") {
@@ -192,7 +254,7 @@ var MobileMenu = /** @class */ (function () {
             dropdown_icon.style.backgroundImage = "url(\"/assets/screen_Assets/icons/dropdown-arrow-up.svg\")";
             this.menu_stack.push(this.active_menu);
             this.active_index_stack.push(this.active_menu[this.active_index]);
-            this.active_menu = submenu;
+            this.active_menu = submenu["menu_links"];
             this.active_index = -1;
             element.setAttribute("aria-expanded", "true");
             console.log("Open Submenu called");
@@ -249,7 +311,7 @@ var MobileMenu = /** @class */ (function () {
                 tmpMenu.push(el);
             }
         });
-        return tmpMenu;
+        return { "menu_links": tmpMenu };
     };
     MobileMenu.prototype.setMenuLinkFocus = function (newActiveLink) {
         this.active_menu.forEach(function (el) {

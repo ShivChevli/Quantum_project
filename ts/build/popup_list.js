@@ -268,10 +268,12 @@ var POPUP_List = /** @class */ (function () {
         this.active_action_btn_index = t;
     };
     POPUP_List.prototype.setFirstActionBtn = function () {
+        this.active_action_btn_index = 0;
         this.setActionBtn(this.footerBtn[0]);
     };
     POPUP_List.prototype.setLastActionBtn = function () {
         var t = this.footerBtn.length - 1;
+        this.active_action_btn_index = t;
         this.setActionBtn(this.footerBtn[t]);
     };
     POPUP_List.prototype.setActionBtn = function (target) {

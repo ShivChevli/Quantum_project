@@ -319,11 +319,13 @@ export class POPUP_List {
   }
 
   setFirstActionBtn() {
+    this.active_action_btn_index = 0;
     this.setActionBtn(this.footerBtn[0]);
   }
 
   setLastActionBtn() {
     let t = this.footerBtn.length - 1;
+    this.active_action_btn_index = t;
     this.setActionBtn(this.footerBtn[t]);
   }
 
