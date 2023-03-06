@@ -1,6 +1,7 @@
 @font-face {
   font-family: "Quicksand";
   src: url("../assets/Quicksand\ font\ 1/Quicksand-VariableFont_wght.ttf");
+  // font-display: swap;
 }
 
 $header_bg: #25313f;
@@ -16,7 +17,8 @@ $bg_green: #3fd28b;
 $bg_light_green: #8ddc97;
 $dark_green: #1f7a54;
 $underline_blue: #31b9e4;
-$expire_lable_red: #d80000;
+// $expire_lable_red: #d80000;
+$expire_lable_red: #990000;
 $expire_lable_red_bg: #ffe4e6;
 
 @mixin textCenter {

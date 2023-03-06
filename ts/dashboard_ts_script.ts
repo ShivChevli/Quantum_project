@@ -1,7 +1,7 @@
 import { POPUP_List } from "./popup_list.js";
 import { MobileMenu } from "./mobile_menu.js";
 let notification_badge = document.querySelector("#notification-badge");
-interface fetchdataType{
+interface   fetchdataType{
     class_heading: string,
     cetegory: string,
     grad: string,
@@ -53,8 +53,8 @@ function loadClassDetails(): void {
 
             data.map((item) => {
                 let stared_Section = item.is_starred ?
-                    "<img src='assets/icons/favourite.svg' alt='added to favourite'>"
-                    : `<svg id="favourite" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    `<img src='assets/icons/favourite.svg' tabindex="0" role="checkbox" aria-checked="true" alt='added to favourite'>`
+                    : `<svg id="favourite" xmlns="http://www.w3.org/2000/svg" tabindex="0" role="checkbox" aria-checked="false" width="24" height="24"
                             viewBox="0 0 24 24">
                             <path id="Path_3678" data-name="Path 3678" d="M0,0H24V24H0Z" fill="none" />
                             <path id="Path_3679" data-name="Path 3679"
@@ -73,7 +73,7 @@ function loadClassDetails(): void {
                     grad_section = `<span class="data-seprator">${tmp[0]} ${tmp1}</span>`;
                 }
                 
-                let load_option = `<select name="class-type" id="" class="input-div--control input-div--control_arrow" ${item.options ?"":"disabled" }>
+                let load_option = `<select name="class-type" id="" aria-label="select classes" class="input-div--control input-div--control_arrow" ${item.options ?"":"disabled" }>
                                 ${item.options ? item.options.map((data) => `<option value="">${data}</option>`) :
                         `<option value="-1" disabled selected hidden>No Class Selected</option>`
                                 }
@@ -97,30 +97,31 @@ function loadClassDetails(): void {
                 
                 let action_Section = item.action ?
                     `<div class="card-footer">
-                            <button class="btn" ${item.action.disablePreview ? "disabled" : ""}>
+                            <button class="btn" aria-label="Preview" ${item.action.disablePreview ? "disabled" : ""}>
                                 <img src="assets/icons/preview.svg" alt="">
+                                <span hidden id="preview" >this is button description </span>
                             </button>
-                            <button class="btn" ${item.action.disableCourseManager ? "disabled" : ""}>
+                            <button class="btn" aria-label="Manage Courses" ${item.action.disableCourseManager ? "disabled" : ""}>
                                 <img src="assets/icons/manage course.svg" alt="">
                             </button>
-                            <button class="btn" ${item.action.disableSubmission ? "disabled" : ""}>
+                            <button class="btn" aria-label="Grad Submission" ${item.action.disableSubmission ? "disabled" : ""}>
                                 <img src="assets/icons/grade submissions.svg" alt="">
                             </button>
-                            <button class="btn" ${item.action.disableReport ? "disabled" : ""}>
+                            <button class="btn" aria-label="Report" ${item.action.disableReport ? "disabled" : ""}>
                                 <img src="assets/icons/reports.svg" alt="">
                             </button>
                         </div>`
                     :`<div class="card-footer">
-                            <button class="btn" >
+                            <button class="btn" aria-label="Preview">
                                 <img src="assets/icons/preview.svg" alt="">
                             </button>
-                            <button class="btn">
+                            <button class="btn" aria-label="Manage Courses">
                                 <img src="assets/icons/manage course.svg" alt="">
                             </button>
-                            <button class="btn">
+                            <button class="btn" aria-label="Grad Submission">
                                 <img src="assets/icons/grade submissions.svg" alt="">
                             </button>
-                            <button class="btn">
+                            <button class="btn" aria-label="Report" >
                                 <img src="assets/icons/reports.svg" alt="">
                             </button>
                         </div>`;
@@ -135,9 +136,9 @@ function loadClassDetails(): void {
                                     <span class="card-heading">
                                         ${item.class_heading}
                                     </span>
-                                    <button class="btn favourite-btn">
+                                    <span class="btn favourite-btn">
                                         ${stared_Section}
-                                    </button>
+                                    </span>
                                 </h2>
                                 <p class="class-topic-detail">
                                     <span>${item.cetegory}</span>

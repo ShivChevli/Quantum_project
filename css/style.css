@@ -191,7 +191,7 @@ body {
   display: block;
   width: 12px;
   height: 12px;
-  background: #2a7ff3;
+  background: #0850b5;
   border-radius: 50%;
   color: #ffffff;
 }
@@ -294,8 +294,8 @@ body {
   font-size: 12px;
   margin-bottom: 5px;
 }
-.header .navbar .navbar-toolbox li .information-box .alert-list .alert-list-item .list-top label,
-.header .navbar .navbar-menu li .information-box .alert-list .alert-list-item .list-top label {
+.header .navbar .navbar-toolbox li .information-box .alert-list .alert-list-item .list-top .label,
+.header .navbar .navbar-menu li .information-box .alert-list .alert-list-item .list-top .label {
   color: #6e6e6e;
 }
 .header .navbar .navbar-toolbox li .information-box .alert-list .alert-list-item .list-top span,
