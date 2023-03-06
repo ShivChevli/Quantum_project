@@ -189,7 +189,6 @@ var POPUP_List = /** @class */ (function () {
         }
     };
     POPUP_List.prototype.onActionBtnKeyDown = function (event) {
-        var t = this.active_action_btn_index;
         var key = event.key, flag = false;
         if (event.shiftKey) {
             switch (key) {
@@ -223,11 +222,7 @@ var POPUP_List = /** @class */ (function () {
                 //   break;
                 case "ArrowDown":
                 case "Down":
-                    t++;
-                    if (t >= this.footerBtn.length) {
-                        t = 0;
-                    }
-                    this.setActionBtn(this.footerBtn[t]);
+                    this.setNextActionBtn();
                     flag = true;
                     break;
                 case "Esc":
@@ -239,11 +234,7 @@ var POPUP_List = /** @class */ (function () {
                     break;
                 case "Up":
                 case "ArrowUp":
-                    t--;
-                    if (t < 0) {
-                        t = this.footerBtn.length - 1;
-                    }
-                    this.setActionBtn(this.footerBtn[t]);
+                    this.setPreviousActionBtn();
                     flag = true;
                     break;
                 default:
@@ -252,12 +243,36 @@ var POPUP_List = /** @class */ (function () {
                     break;
             }
         }
-        this.active_action_btn_index = t;
         if (flag) {
             console.log("flag change");
             event.stopPropagation();
             event.preventDefault();
         }
+    };
+    POPUP_List.prototype.setNextActionBtn = function () {
+        var t = this.active_action_btn_index;
+        t++;
+        if (t >= this.footerBtn.length) {
+            t = 0;
+        }
+        this.setActionBtn(this.footerBtn[t]);
+        this.active_action_btn_index = t;
+    };
+    POPUP_List.prototype.setPreviousActionBtn = function () {
+        var t = this.active_action_btn_index;
+        t--;
+        if (t < 0) {
+            t = this.footerBtn.length - 1;
+        }
+        this.setActionBtn(this.footerBtn[t]);
+        this.active_action_btn_index = t;
+    };
+    POPUP_List.prototype.setFirstActionBtn = function () {
+        this.setActionBtn(this.footerBtn[0]);
+    };
+    POPUP_List.prototype.setLastActionBtn = function () {
+        var t = this.footerBtn.length - 1;
+        this.setActionBtn(this.footerBtn[t]);
     };
     POPUP_List.prototype.setActionBtn = function (target) {
         console.log("set action btn called");

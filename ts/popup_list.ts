@@ -224,7 +224,6 @@ export class POPUP_List {
   }
 
   onActionBtnKeyDown(event) {
-    let t = this.active_action_btn_index;
     var key = event.key,
       flag = false;
 
@@ -267,11 +266,7 @@ export class POPUP_List {
         
         case "ArrowDown":
         case "Down":
-          t++;
-          if (t >= this.footerBtn.length) {
-            t = 0;
-          }
-          this.setActionBtn(this.footerBtn[t]);
+          this.setNextActionBtn();
           flag = true;
           break;
 
@@ -285,11 +280,7 @@ export class POPUP_List {
 
         case "Up":
         case "ArrowUp":
-          t--;
-          if (t < 0) {
-            t = this.footerBtn.length - 1;
-          }
-          this.setActionBtn(this.footerBtn[t]);
+          this.setPreviousActionBtn();
           flag = true;
           break;
 
@@ -299,12 +290,41 @@ export class POPUP_List {
           break;
       }
     }
-    this.active_action_btn_index = t;
+
     if (flag) {
       console.log("flag change")
       event.stopPropagation();
       event.preventDefault();
     }
+  }
+
+  setNextActionBtn() {
+    let t = this.active_action_btn_index;
+    t++;
+    if (t >= this.footerBtn.length) {
+      t = 0;
+    }
+    this.setActionBtn(this.footerBtn[t]);
+    this.active_action_btn_index = t;
+  }
+
+  setPreviousActionBtn() {
+    let t = this.active_action_btn_index;
+    t--;
+    if (t < 0) {
+      t = this.footerBtn.length - 1;
+    }
+    this.setActionBtn(this.footerBtn[t]);
+    this.active_action_btn_index = t;
+  }
+
+  setFirstActionBtn() {
+    this.setActionBtn(this.footerBtn[0]);
+  }
+
+  setLastActionBtn() {
+    let t = this.footerBtn.length - 1;
+    this.setActionBtn(this.footerBtn[t]);
   }
 
   setActionBtn(target) {
