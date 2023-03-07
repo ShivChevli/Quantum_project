@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard -home </title>
+    <link rel="preload" as="font" href="assets/Quicksand font 1/Quicksand-VariableFont_wght.ttf" 
+    type="font/ttf" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style_dashboard.css">
-    <link rel="preload" href="assets/Quicksand font 1/Quicksand-VariableFont_wght.ttf" as="font" type="font/ttf"
-        crossorigin="anonymous">
 </head>
 
 <body>
@@ -20,21 +20,20 @@
             </a>
             <!-- <div class="navbar"> -->
                 <nav class="navbar-menu" aria-label="Main">
-
-                    <ul class="" id="nav-menu" role="menubar" aria-label="Dashboard tab">
-                        <li role="none"><a class="active" role="menuitem" href="#">Dashboard</a></li>
-                        <li role="none"><a href="#" role="menuitem">Content</a></li>
-                        <li role="none"><a href="#" role="menuitem">Users</a></li>
-                        <li role="none"><a href="#" role="menuitem">Reports</a></li>
-                        <li role="none"><a href="#" role="menuitem">Admin</a></li>
+                    <ul class="" id="nav-menu" role="menubar" aria-label="Main navigation">
+                        <li role="none"><a class="active" tabindex="0" role="menuitem" href="#">Dashboard</a></li>
+                        <li role="none"><a href="#" tabindex="-1" role="menuitem">Content</a></li>
+                        <li role="none"><a href="#" tabindex="-1" role="menuitem">Users</a></li>
+                        <li role="none"><a href="#" tabindex="-1" role="menuitem">Reports</a></li>
+                        <li role="none"><a href="#" tabindex="-1" role="menuitem">Admin</a></li>
                     </ul>
                 </nav>
         
             <ul class="navbar-toolbox" aria-label="Uitility tabs">
-                <li>
-                    <span class="btn" id="notification-icon">
+                <li class="btn" id="notification-icon" aria-activedescendant="1">
+                    <!-- <span class="btn" id="notification-icon"> -->
                         <!-- <img src="assets/icons/alerts.svg" alt=""> -->
-                        <span id="notification-trigger-btn" tabindex="0" aria-label="toggle notification" role="button" aria-expanded="false" aria-haspopup="false">
+                        <span id="notification-trigger-btn" class="action-icon" tabindex="0" aria-label="toggle notification" role="button" aria-expanded="false" aria-haspopup="true">
                             <svg id="notifications" class="action-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24">
                                 <path id="Path_3674" data-name="Path 3674" d="M0,0H24V24H0Z" fill="none" />
@@ -45,7 +44,7 @@
                             
                             <span class="notification-badge" id="notificatoin-badge" aria-label="Notification"> 5 </span>
                         </span>
-                        <div class="information-box" id="notification-list" aria-hidden="true">
+                        <div class="information-box" id="notification-list" role="dialog" aria-hidden="true">
                             <ul class="alert-list" aria-label="Notification List">
                                 <li class="alert-list-item" role="listitem" >
                                     <div class="list-content" aria-hidden="true"  >
@@ -112,10 +111,10 @@
                                 <span role="button">SHOW ALL</span>
                             </div>
                         </div>
-                    </span>
+                    <!-- </span> -->
                 </li>
-                <li>
-                    <span class="btn" id="announcement-icon">        
+                <li class="btn" id="announcement-icon">
+                    <!-- <span class="btn" id="announcement-icon">         -->
                         <!-- <img src="assets/icons/announcements.svg" alt=""> -->
                         <span id="announcement-trigger-btn" tabindex="0" aria-label="toggle alerts" role="button"  aria-expanded="false" >
                             <svg xmlns="http://www.w3.org/2000/svg" class="action-icon" width="20" height="20" viewBox="0 0 20 20">
@@ -125,7 +124,7 @@
                             </svg>
                             <span class="notification-badge" id="announcements-badge"> 5 </span>
                         </span>
-                            <div class="information-box" id="announcements-list" aria-hidden="true">
+                            <div class="information-box" id="announcements-list" role="dialog" aria-hidden="true">
                             <ul class="alert-list">
                                 <li class="alert-list-item">
                                     <p class="list-top">
@@ -291,7 +290,7 @@
                                 <span role="button" class="border-left">CREATE NEW </span>
                             </div>
                         </div>
-                    </span>
+                    <!-- </span> -->
                 </li>
                 <li class="user-profile">
                     <button class="btn">
@@ -302,7 +301,7 @@
             </ul>
             <div class="toggle-btn" id="menu-toggle-btn">
                 <!-- <img src="assets/screen_Assets/icons/hamburger-menu.svg" alt="Toggle Menu Button"> -->
-                <span class="toggle-btn-span" tabindex="0"  aria-label="Menu" role="button" aria-haspopup="true" aria-expanded="false">
+                <span class="toggle-btn-span" tabindex="0"  aria-label="Mobile menu toggle" role="button" aria-haspopup="true" aria-expanded="false">
                     <svg id="hamburger-menu" 
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path id="Path_1833" data-name="Path 1833" d="M0,0H24V24H0Z" fill="none" />

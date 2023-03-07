@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Quicksand";
-  src: url("../assets/Quicksand font 1/Quicksand-VariableFont_wght.ttf");
+  src: url("../assets/Quicksand font 1/Quicksand-VariableFont_wght.ttf") format("ttf");
 }
 * {
   margin: 0;
@@ -352,6 +352,14 @@ body {
 .header .navbar .navbar-toolbox li .information-box .single-element,
 .header .navbar .navbar-menu li .information-box .single-element {
   grid-template-columns: 1fr;
+}
+.header .navbar .navbar-toolbox li span[aria-expanded=true] svg,
+.header .navbar .navbar-menu li span[aria-expanded=true] svg {
+  color: #eeeeee;
+}
+.header .navbar .navbar-toolbox li span[aria-expanded=true] .notification-badge,
+.header .navbar .navbar-menu li span[aria-expanded=true] .notification-badge {
+  display: none;
 }
 .header .navbar .navbar-toolbox .user-profile,
 .header .navbar .navbar-menu .user-profile {

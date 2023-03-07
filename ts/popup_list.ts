@@ -23,7 +23,7 @@ export class POPUP_List {
     });
     this.footerBtn = tmp;
     this.active_action_btn_index = -1;
-    console.log(this.footerBtn);
+    // console.log(this.footerBtn);
 
     for (var i = 0; i < nodes.length; i++) {
       var menuitem = nodes[i];
@@ -50,7 +50,7 @@ export class POPUP_List {
     // this.trigger.parentElement.addEventListener("focusout", this.closeList.bind(this));       
   }
   openList() {
-    console.log("Open List function Called");
+    // console.log("Open List function Called");
     this.trigger.setAttribute("aria-expanded", "true");
     this.target.classList.add("show-list");
     this.target.setAttribute("aria-hidden", "false");
@@ -58,7 +58,7 @@ export class POPUP_List {
     this.isFocuse = true;
   }
   closeList() {
-    console.log("Close List function Called");
+    // console.log("Close List function Called");
     this.trigger.setAttribute("aria-expanded", "false");
     this.target.classList.remove("show-list");
     this.target.setAttribute("aria-hidden", "true");
@@ -69,7 +69,7 @@ export class POPUP_List {
 
   onButtonClick(event) {
     if (this.isOpen()) {
-      console.log("Btn Close Out")
+      // console.log("Btn Close Out")
       this.closeList();
       this.trigger.focus();
     } else {
@@ -79,7 +79,7 @@ export class POPUP_List {
   }
 
   onButtonKeydown(event) {
-    console.log("Button Key Down event");
+    // console.log("Button Key Down event");
     var key = event.key,
       flag = false;
 
@@ -88,7 +88,7 @@ export class POPUP_List {
       case "Enter":
       case "ArrowDown":
       case "Down":
-        console.log("Case 1");
+        // console.log("Case 1");
         this.openList();
         this.setFocusToFirstNotification();
         flag = true;
@@ -96,8 +96,8 @@ export class POPUP_List {
 
       case "Esc":
       case "Escape":
-        // console.log("Notifation close");
-        console.log("Case 2");
+        // // console.log("Notifation close");
+        // console.log("Case 2");
         this.closeList();
         this.trigger.focus();
         flag = true;
@@ -105,28 +105,28 @@ export class POPUP_List {
 
       case "Up":
       case "ArrowUp":
-        // console.log("Notifation Open");
-        console.log("Case 3");
+        // // console.log("Notifation Open");
+        // console.log("Case 3");
         this.openList();
         this.setFocusToLastNotification();
         flag = true;
         break;
 
       default:
-        console.log("default case");
-        console.log("Key Buiding is not Avaliable")
+        // console.log("default case");
+        // console.log("Key Buiding is not Avaliable")
         break;
     }
 
     if (flag) {
-      console.log("flag change")
+      // console.log("flag change")
       event.stopPropagation();
       event.preventDefault();
     }
   }
 
   onNotificationKeydown(event) {
-    console.log("Notification Keydown Event called");
+    // console.log("Notification Keydown Event called");
     var tgt = event.currentTarget,
       key = event.key,
       flag = false;
@@ -140,7 +140,7 @@ export class POPUP_List {
       
       switch (key) {
         case " ":
-          console.log("Press Space");
+          // console.log("Press Space");
           /* Add space Functionality */
           break;
         
@@ -165,14 +165,14 @@ export class POPUP_List {
     } else {
       switch (key) {
         case " ":
-          console.log("case 1");
+          // console.log("case 1");
           /* Add space Functionality */
 
           break;
 
         case "Esc":
         case "Escape":
-          console.log("case 2");
+          // console.log("case 2");
           this.closeList();
           this.trigger.focus();
           flag = true;
@@ -180,39 +180,39 @@ export class POPUP_List {
 
         case "Up":
         case "ArrowUp":
-          console.log("case 3");
+          // console.log("case 3");
           this.setFocusToPreviousNotification(tgt);
           flag = true;
           break;
 
         case "ArrowDown":
         case "Down":
-          console.log("case 4");
+          // console.log("case 4");
           this.setFocusToNextNotification(tgt);
           flag = true;
           break;
 
         case "Home":
         case "PageUp":
-          console.log("case 5");
+          // console.log("case 5");
           this.setFocusToFirstNotification();
           flag = true;
           break;
 
         case "End":
         case "PageDown":
-          console.log("case 6");
+          // console.log("case 6");
           this.setFocusToLastNotification();
           flag = true;
           break;
 
         case "Tab":
-          console.log("case 7");
+          // console.log("case 7");
           this.closeList();
           break;
 
         default:
-          console.log("Default Case");
+          // console.log("Default Case");
           break;
       }
     }
@@ -247,7 +247,7 @@ export class POPUP_List {
           break;
         
         default:
-          console.log("Shift Btn default");
+          // console.log("Shift Btn default");
           break;
       }
 
@@ -256,11 +256,11 @@ export class POPUP_List {
       switch (key) {
         case " ":
         case "Enter":
-          console.log("Active Btn");
+          // console.log("Active Btn");
           break;
 
         // case "Tab":
-        //   console.log("Tab Btn click")
+        //   // console.log("Tab Btn click")
         //   this.setFocusToFirstNotification();
         //   break;
         
@@ -285,14 +285,14 @@ export class POPUP_List {
           break;
 
         default:
-          console.log("default case");
-          console.log("Key Buiding is not Avaliable")
+          // console.log("default case");
+          // console.log("Key Buiding is not Avaliable")
           break;
       }
     }
 
     if (flag) {
-      console.log("flag change")
+      // console.log("flag change")
       event.stopPropagation();
       event.preventDefault();
     }
@@ -330,8 +330,8 @@ export class POPUP_List {
   }
 
   setActionBtn(target) {
-    console.log("set action btn called");
-    console.log(target);
+    // console.log("set action btn called");
+    // console.log(target);
     this.footerBtn.forEach(el => {
       if (el === target) {
         el.tabIndex = 0;

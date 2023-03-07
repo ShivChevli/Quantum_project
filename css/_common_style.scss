@@ -1,7 +1,8 @@
 @font-face {
   font-family: "Quicksand";
-  src: url("../assets/Quicksand\ font\ 1/Quicksand-VariableFont_wght.ttf");
-  // font-display: swap;
+  src: url("../assets/Quicksand\ font\ 1/Quicksand-VariableFont_wght.ttf")
+    format("ttf");
+  // font-display: optional;
 }
 
 $header_bg: #25313f;

@@ -198,6 +198,14 @@
           grid-template-columns: 1fr;
         }
       }
+      span[aria-expanded="true"] {
+        svg {
+          color: $white;
+        }
+        .notification-badge {
+          display: none;
+        }
+      }
     }
 
     .user-profile {

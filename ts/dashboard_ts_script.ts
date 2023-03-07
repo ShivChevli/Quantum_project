@@ -1,5 +1,7 @@
 import { POPUP_List } from "./popup_list.js";
 import { MobileMenu } from "./mobile_menu.js";
+import { POPUP_List_V2 } from "./popup_list_v2.js";
+import { Menubar } from "./manubar.js";
 let notification_badge = document.querySelector("#notification-badge");
 interface   fetchdataType{
     class_heading: string,
@@ -244,11 +246,24 @@ let announcement_list: HTMLDivElement = document.querySelector("#announcements-l
 //     announcement_list.classList.remove("show-list");
 // })
 
-let notification_popup:POPUP_List = new POPUP_List(notification, notification_list);
-notification_popup.init();
+// #######################################################################
+// ########################### Version 1 #################################
+// #######################################################################
 
-let announcement_popup: POPUP_List = new POPUP_List(announcement, announcement_list);
-announcement_popup.init();
+// let notification_popup:POPUP_List = new POPUP_List(notification, notification_list);
+// notification_popup.init();
+
+// let announcement_popup: POPUP_List = new POPUP_List(announcement, announcement_list);
+// announcement_popup.init();
+
+let notification_popup:POPUP_List_V2 = new POPUP_List_V2(document.querySelector("#notification-icon"));
+// notification_popup.init();
+
+let announcement_popup: POPUP_List_V2 = new  POPUP_List_V2(document.querySelector("#announcement-icon"));
+// announcement_popup.init();
+
+
 
 
 let mobile_menu: MobileMenu = new MobileMenu(document.querySelector("#menu-toggle-btn"));
+let mmain_menu: Menubar = new Menubar(document.querySelector("#nav-menu"));

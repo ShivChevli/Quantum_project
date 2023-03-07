@@ -1,7 +1,7 @@
-var btn_menu = document.querySelector("#show-pwd-btn");
-var input = document.querySelector("#pwd-input");
-var isShow = true;
-btn_menu.addEventListener("click", function (event) {
+let btn_menu = document.querySelector("#show-pwd-btn");
+let input = document.querySelector("#pwd-input");
+let isShow = true;
+btn_menu.addEventListener("click", (event) => {
     input.setAttribute("type", isShow ? "input" : "password");
     isShow = !isShow;
 });
