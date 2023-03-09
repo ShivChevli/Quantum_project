@@ -529,6 +529,9 @@ body {
 .footer .footer-content * {
   vertical-align: middle;
 }
+.footer .footer-content a {
+  text-decoration: none;
+}
 .footer .footer-content .footer-logo {
   height: 24px;
   padding-right: 16px;

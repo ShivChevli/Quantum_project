@@ -182,14 +182,14 @@ export class POPUP_List_V2 {
 
                 case "Up":
                 case "ArrowUp":
-                    // console.log("case 3");
+                    console.log("case 3");
                     this.setFocusToPreviousNotification(tgt);
                     flag = true;
                     break;
 
                 case "ArrowDown":
                 case "Down":
-                    // console.log("case 4");
+                    console.log("case 4");
                     this.setFocusToNextNotification(tgt);
                     flag = true;
                     break;
@@ -219,7 +219,7 @@ export class POPUP_List_V2 {
                     break;
 
                 default:
-                    // console.log("Default Case");
+                    console.log("Default Case");
                     break;
             }
         }

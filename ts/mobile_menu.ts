@@ -47,6 +47,10 @@ export class MobileMenu {
         // console.log("Link Got from Function");
         // console.log(main_menu);
         this.active_menu = main_menu["menu_links"];
+        // this.menu.addEventListener("blur", this.closeMenu.bind(this));
+        this.menu.querySelector("ul").addEventListener("focusin", () => {
+            console.log("Menu become BLure")
+        });
     }
 
     onMenuLinkClick(event:MouseEvent) {
@@ -361,12 +365,12 @@ export class MobileMenu {
             // console.log("Values");
             // console.log(t);
 
-            if (dropdown_icon !== null) {
+            // if (dropdown_icon !== null) {
                 let ul = li.querySelector("ul") as HTMLUListElement;
                
                 ul.classList.remove("display-block");
                 dropdown_icon.style.backgroundImage = `url("/assets/screen_Assets/icons/dropdown-arrow-down.svg")`;
-            }
+            // }
 
 
             a.setAttribute("aria-expanded", "false");
