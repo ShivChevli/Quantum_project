@@ -207,4 +207,14 @@ let announcement_popup = new POPUP_List_V2(document.querySelector("#announcement
 // announcement_popup.init();
 let mobile_menu = new MobileMenu(document.querySelector("#menu-toggle-btn"));
 let mmain_menu = new Menubar(document.querySelector("#nav-menu"));
+// document.addEventListener("click", event => {
+//     let t = document.querySelector("#notification-icon").contains(event.target as Node);
+//     let t1 = document.querySelector("#announcement-icon").contains(event.target as Node);
+//     if (!t) {
+//         notification_popup.closeList();
+//     }
+//     if (!t1) {
+//         announcement_popup.closeList();
+//     }
+// })
 //# sourceMappingURL=dashboard_ts_script.js.map

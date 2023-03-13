@@ -1,12 +1,3 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 export class POPUP_List_V2 {
     constructor(element) {
         this.notification_list = new Array();
@@ -14,6 +5,7 @@ export class POPUP_List_V2 {
         this.active_index = 0;
         this.firstNotification = null;
         this.lastNotification = null;
+        this.activeNotification = null;
         this.trigger_btn = element.querySelector("span");
         this.target = element.querySelector("div");
         let nodes = this.target.querySelectorAll("li");
@@ -25,9 +17,9 @@ export class POPUP_List_V2 {
             el.tabIndex = -1;
             el.addEventListener("keydown", this.onActionBtnKeyDown.bind(this));
         });
-        this.footerBtn = tmp;
+        this.footerBtns = tmp;
         this.active_action_btn_index = -1;
-        // console.log(this.footerBtn);
+        // console.log(this.footerBtns);
         for (var i = 0; i < nodes.length; i++) {
             var menuitem = nodes[i];
             this.notification_list.push(menuitem);
@@ -42,19 +34,36 @@ export class POPUP_List_V2 {
             }
             this.lastNotification = menuitem;
         }
+        this.trigger_btn.ariaPressed = "false";
         this.trigger_btn.addEventListener("click", this.onButtonClick.bind(this));
         this.trigger_btn.addEventListener("keydown", this.onButtonKeydown.bind(this));
+        document.addEventListener("click", event => {
+            if (!element.contains(event.target)) {
+                this.closeListOnFocusOut();
+            }
+        });
     }
     openList() {
         // console.log("Open List function Called");
         this.trigger_btn.setAttribute("aria-expanded", "true");
+        this.trigger_btn.ariaPressed = "true";
         this.target.classList.add("show-list");
         this.target.setAttribute("aria-hidden", "false");
         this.isFocuse = true;
     }
     closeList() {
         this.trigger_btn.setAttribute("aria-expanded", "false");
+        this.trigger_btn.ariaPressed = "false";
         this.trigger_btn.focus();
+        this.target.classList.remove("show-list");
+        this.target.setAttribute("aria-hidden", "true");
+        this.setFocusToNotification(null);
+        this.setActionBtn(null);
+        this.isFocuse = false;
+    }
+    closeListOnFocusOut() {
+        this.trigger_btn.setAttribute("aria-expanded", "false");
+        this.trigger_btn.ariaPressed = "false";
         this.target.classList.remove("show-list");
         this.target.setAttribute("aria-hidden", "true");
         this.setFocusToNotification(null);
@@ -85,22 +94,18 @@ export class POPUP_List_V2 {
                 break;
             case "Esc":
             case "Escape":
-                // // console.log("Notifation close");
-                // console.log("Case 2");
                 this.closeList();
                 flag = true;
                 break;
             case "Up":
             case "ArrowUp":
-                // // console.log("Notifation Open");
-                // console.log("Case 3");
                 this.openList();
                 this.setFocusToLastNotification();
                 flag = true;
                 break;
             default:
                 // console.log("default case");
-                // console.log("Key Buiding is not Avaliable")
+                console.log("Key Buiding is not Avaliable");
                 break;
         }
         if (flag) {
@@ -122,19 +127,9 @@ export class POPUP_List_V2 {
                     /* Add space Functionality */
                     break;
                 case "Tab":
-                    let t = this.active_action_btn_index === -1 ? 0 : this.active_action_btn_index;
-                    this.setFocusToNotification(null);
-                    this.active_action_btn_index = t;
-                    this.setActionBtn(this.footerBtn[t]);
+                    this.setNextActionBtn();
                     flag = true;
                     break;
-                // case "ArrowDown":
-                // case "ArrowUp":
-                //     t = this.active_action_btn_index === -1 ? 0 : this.active_action_btn_index;
-                //     this.setFocusToNotification(null);
-                //     this.setActionBtn(this.footerBtn[t]);
-                //     this.active_action_btn_index = t;
-                //     break;
                 default:
                     break;
             }
@@ -153,13 +148,13 @@ export class POPUP_List_V2 {
                     break;
                 case "Up":
                 case "ArrowUp":
-                    console.log("case 3");
+                    // console.log("case 3");
                     this.setFocusToPreviousNotification(tgt);
                     flag = true;
                     break;
                 case "ArrowDown":
                 case "Down":
-                    console.log("case 4");
+                    // console.log("case 4");
                     this.setFocusToNextNotification(tgt);
                     flag = true;
                     break;
@@ -178,10 +173,11 @@ export class POPUP_List_V2 {
                 case "Tab":
                     // console.log("case 7");
                     // this.closeList();
-                    let t = this.active_action_btn_index === -1 ? 0 : this.active_action_btn_index;
-                    this.setFocusToNotification(null);
-                    this.setActionBtn(this.footerBtn[t]);
-                    this.active_action_btn_index = t;
+                    // let t = this.active_action_btn_index === -1 ? 0 : this.active_action_btn_index;
+                    // this.setFocusToNotification(null);
+                    // this.setActionBtn(this.footerBtns[t]);
+                    // this.active_action_btn_index = t;
+                    this.setNextActionBtn();
                     flag = true;
                     break;
                 default:
@@ -202,7 +198,7 @@ export class POPUP_List_V2 {
                     // this.closeList();
                     // flag = true;
                     // this.setLastActionBtn();
-                    this.setFocusToFirstNotification();
+                    this.setFocusToNotification(this.activeNotification);
                     flag = true;
                     break;
                 case "ArrowDown":
@@ -230,7 +226,8 @@ export class POPUP_List_V2 {
                     break;
                 case "Tab":
                     // console.log("Tab Btn click")
-                    this.setFocusToFirstNotification();
+                    // this.setFocusToFirstNotification();
+                    this.setFocusToNotification(this.activeNotification);
                     flag = true;
                     break;
                 case "ArrowDown":
@@ -264,50 +261,42 @@ export class POPUP_List_V2 {
     setNextActionBtn() {
         let t = this.active_action_btn_index;
         t++;
-        if (t >= this.footerBtn.length) {
+        if (t >= this.footerBtns.length) {
             t = 0;
         }
-        this.setActionBtn(this.footerBtn[t]);
+        this.setActionBtn(this.footerBtns[t]);
         this.active_action_btn_index = t;
     }
     setPreviousActionBtn() {
-        return __awaiter(this, void 0, void 0, function* () {
-            let t = this.active_action_btn_index;
-            t--;
-            if (t < 0) {
-                t = this.footerBtn.length - 1;
-            }
-            this.setActionBtn(this.footerBtn[t]);
-            this.active_action_btn_index = t;
-        });
+        let t = this.active_action_btn_index;
+        t--;
+        if (t < 0) {
+            t = this.footerBtns.length - 1;
+        }
+        this.setActionBtn(this.footerBtns[t]);
+        this.active_action_btn_index = t;
     }
     setFirstActionBtn() {
-        return __awaiter(this, void 0, void 0, function* () {
-            this.active_action_btn_index = 0;
-            this.setActionBtn(this.footerBtn[0]);
-        });
+        this.active_action_btn_index = 0;
+        this.setActionBtn(this.footerBtns[0]);
     }
     setLastActionBtn() {
-        return __awaiter(this, void 0, void 0, function* () {
-            let t = this.footerBtn.length - 1;
-            this.active_action_btn_index = t;
-            this.setActionBtn(this.footerBtn[t]);
-        });
+        let t = this.footerBtns.length - 1;
+        this.active_action_btn_index = t;
+        this.setActionBtn(this.footerBtns[t]);
     }
     setActionBtn(target) {
-        return __awaiter(this, void 0, void 0, function* () {
-            // console.log("set action btn called");
-            // console.log(target);
-            this.footerBtn.forEach((el) => {
-                if (el === target) {
-                    el.tabIndex = 0;
-                    console.log("Focus Method Called");
-                    target.focus();
-                }
-                else {
-                    el.tabIndex = -1;
-                }
-            });
+        // console.log("set action btn called");
+        // console.log(target);
+        this.footerBtns.forEach((el) => {
+            if (el === target) {
+                el.tabIndex = 0;
+                console.log("Focus Method Called");
+                target.focus();
+            }
+            else {
+                el.tabIndex = -1;
+            }
         });
     }
     isOpen() {
@@ -323,6 +312,7 @@ export class POPUP_List_V2 {
             newNotification = this.notification_list[index - 1];
         }
         this.setFocusToNotification(newNotification);
+        this.activeNotification = newNotification;
         return newNotification;
     }
     setFocusToNextNotification(currentMenuitem) {
@@ -335,12 +325,15 @@ export class POPUP_List_V2 {
             newNotification = this.notification_list[index + 1];
         }
         this.setFocusToNotification(newNotification);
+        this.activeNotification = newNotification;
         return newNotification;
     }
     setFocusToFirstNotification() {
+        this.activeNotification = this.firstNotification;
         this.setFocusToNotification(this.firstNotification);
     }
     setFocusToLastNotification() {
+        this.activeNotification = this.lastNotification;
         this.setFocusToNotification(this.lastNotification);
     }
     setFocusToNotification(newNotification) {

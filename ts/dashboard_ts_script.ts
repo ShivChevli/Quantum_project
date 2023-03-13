@@ -267,3 +267,14 @@ let announcement_popup: POPUP_List_V2 = new  POPUP_List_V2(document.querySelecto
 
 let mobile_menu: MobileMenu = new MobileMenu(document.querySelector("#menu-toggle-btn"));
 let mmain_menu: Menubar = new Menubar(document.querySelector("#nav-menu"));
+
+// document.addEventListener("click", event => {
+//     let t = document.querySelector("#notification-icon").contains(event.target as Node);
+//     let t1 = document.querySelector("#announcement-icon").contains(event.target as Node);
+//     if (!t) {
+//         notification_popup.closeList();
+//     }
+//     if (!t1) {
+//         announcement_popup.closeList();
+//     }
+// })
