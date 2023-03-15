@@ -16,7 +16,7 @@ function loadCourseStatus(count) {
 }
 function loadClassDetails() {
     let container = document.querySelector(".card-container");
-    fetch("/data.json")
+    fetch("/data/card_data.json")
         .then(response => response.json())
         .then((data) => {
         // console.log(data);
@@ -43,7 +43,7 @@ function loadClassDetails() {
             }
             let load_option = `<select name="class-type" id="" aria-label="select classes" class="input-div--control input-div--control_arrow" ${item.options ? "" : "disabled"}>
                                 ${item.options ? item.options.map((data) => `<option value="">${data}</option>`) :
-                `<option value="-1" disabled selected hidden>No Class Selected</option>`}
+                `<option value="-1" selected >No Class Selected</option>`}
                             </select>`;
             let detail_section = item.details ?
                 `<p class="class-detail">
@@ -62,7 +62,6 @@ function loadClassDetails() {
                 `<div class="card-footer">
                             <button class="btn" aria-label="Preview" ${item.action.disablePreview ? "disabled" : ""}>
                                 <img src="assets/icons/preview.svg" alt="">
-                                <span hidden id="preview" >this is button description </span>
                             </button>
                             <button class="btn" aria-label="Manage Courses" ${item.action.disableCourseManager ? "disabled" : ""}>
                                 <img src="assets/icons/manage course.svg" alt="">
@@ -124,6 +123,7 @@ function loadClassDetails() {
     // })
 }
 loadClassDetails();
+// loadNotifications();
 let nav = document.querySelector("#nav-menu");
 let isOpen = false;
 function toggle_menu() {

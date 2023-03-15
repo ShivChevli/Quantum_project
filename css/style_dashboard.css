@@ -7,7 +7,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Quicksand, Arial, Helvetica, sans-serif;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 body {
@@ -28,12 +28,12 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 .input-div--control:focus-visible {
-  font-weight: 900;
+  font-weight: 700;
   border-bottom: 2px solid rgb(0, 0, 0);
   outline: 0;
 }
 .input-div--control:focus {
-  font-weight: 900;
+  font-weight: 700;
   border-bottom: 2px solid rgb(0, 0, 0);
 }
 
@@ -57,11 +57,10 @@ body {
   background-repeat: no-repeat;
   background-position: calc(100% - 3px) center;
   background-size: 20px;
-  font-weight: 600;
 }
 
 .util-bold-font {
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .bg-offWhite {
@@ -251,8 +250,7 @@ body {
 .header .navbar .navbar-toolbox li .information-box .alert-list .alert-list-item,
 .header .navbar .navbar-menu li .information-box .alert-list .alert-list-item {
   display: block;
-  height: -moz-fit-content;
-  height: fit-content;
+  height: auto;
   text-align: left;
   padding: 16px;
   border-bottom: 1px solid gray;
@@ -306,7 +304,6 @@ body {
 .header .navbar .navbar-menu li .information-box .alert-list .alert-list-item .list-content {
   display: flex;
   font-size: 14px;
-  font-weight: 600;
   margin-bottom: 8px;
   color: #222222;
 }
@@ -468,7 +465,7 @@ body {
   display: block;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 798px) {
   .header {
     border-bottom: 2px solid #31b9e4;
     height: auto;
@@ -502,7 +499,6 @@ body {
 */
 .footer {
   margin-top: auto;
-  font-weight: 600;
 }
 .footer .footer-option_div {
   width: 100%;
@@ -567,7 +563,6 @@ body {
   border: none;
   height: 64px;
   flex: 1;
-  font-weight: 600;
   color: #222222;
 }
 .content-body .main-div .sub-tab-item .sub-tab-item--img {
@@ -612,7 +607,6 @@ body {
   background: none;
   width: 200px;
   color: #222222;
-  font-weight: 600;
   border: none;
   border-bottom: 1px solid #616161;
   margin-right: 24px;
@@ -641,7 +635,6 @@ body {
 .content-body .main-div .card-div .card-body {
   display: flex;
   font-size: 12px;
-  font-weight: 600;
   color: #616161;
 }
 .content-body .main-div .card-div .card-body .card-body--img {
@@ -655,7 +648,6 @@ body {
 .content-body .main-div .card-div .card-body .card-content-detail .card-header {
   color: #222222;
   font-size: 16px;
-  font-weight: 600;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   justify-content: space-between;
@@ -675,15 +667,18 @@ body {
   margin: 7px 0;
 }
 .content-body .main-div .card-div .card-body .card-content-detail .class-detail span {
-  font-weight: 900;
+  font-weight: 700;
   color: #222222;
 }
 .content-body .main-div .card-div .card-footer {
   margin-top: 16px;
-  padding: 16px 0 9px;
+  padding: 10px 0 3px;
   border-top: 1px solid #666666;
   display: flex;
   justify-content: space-around;
+}
+.content-body .main-div .card-div .card-footer .btn {
+  padding: 6px 10px;
 }
 
 .data-seprator {
@@ -713,7 +708,6 @@ button:disabled:hover {
   position: absolute;
   top: 0;
   left: 0;
-  font-weight: 600;
   padding: 4px 7px 2px 5px;
   text-transform: uppercase;
   color: #990000;

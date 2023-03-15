@@ -34,7 +34,6 @@ export class POPUP_List_V2 {
             }
             this.lastNotification = menuitem;
         }
-        this.trigger_btn.ariaPressed = "false";
         this.trigger_btn.addEventListener("click", this.onButtonClick.bind(this));
         this.trigger_btn.addEventListener("keydown", this.onButtonKeydown.bind(this));
         document.addEventListener("click", event => {
@@ -46,14 +45,12 @@ export class POPUP_List_V2 {
     openList() {
         // console.log("Open List function Called");
         this.trigger_btn.setAttribute("aria-expanded", "true");
-        this.trigger_btn.ariaPressed = "true";
         this.target.classList.add("show-list");
         this.target.setAttribute("aria-hidden", "false");
         this.isFocuse = true;
     }
     closeList() {
         this.trigger_btn.setAttribute("aria-expanded", "false");
-        this.trigger_btn.ariaPressed = "false";
         this.trigger_btn.focus();
         this.target.classList.remove("show-list");
         this.target.setAttribute("aria-hidden", "true");
@@ -63,7 +60,6 @@ export class POPUP_List_V2 {
     }
     closeListOnFocusOut() {
         this.trigger_btn.setAttribute("aria-expanded", "false");
-        this.trigger_btn.ariaPressed = "false";
         this.target.classList.remove("show-list");
         this.target.setAttribute("aria-hidden", "true");
         this.setFocusToNotification(null);

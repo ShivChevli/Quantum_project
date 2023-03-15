@@ -25,7 +25,7 @@
       border: none;
       height: 64px;
       flex: 1;
-      font-weight: 600;
+      //  font-weight: 600;
       color: $blank;
 
       .sub-tab-item--img {
@@ -77,7 +77,7 @@
           background: none;
           width: 200px;
           color: $blank;
-          font-weight: 600;
+          //  font-weight: 600;
           border: none;
           border-bottom: 1px solid $gray;
           margin-right: 24px;
@@ -112,7 +112,7 @@
       .card-body {
         display: flex;
         font-size: 12px;
-        font-weight: 600;
+        //  font-weight: 600;
         color: $gray;
 
         .card-body--img {
@@ -127,7 +127,7 @@
           .card-header {
             color: $blank;
             font-size: 16px;
-            font-weight: 600;
+            //  font-weight: 600;
             display: grid;
             grid-template-columns: repeat(12, 1fr);
             justify-content: space-between;
@@ -151,7 +151,7 @@
           }
 
           .class-detail span {
-            font-weight: 900;
+            font-weight: 700;
             color: $blank;
           }
         }
@@ -159,10 +159,13 @@
 
       .card-footer {
         margin-top: 16px;
-        padding: 16px 0 9px;
+        padding: 10px 0 3px;
         border-top: 1px solid #666666;
         display: flex;
         justify-content: space-around;
+        .btn {
+          padding: 6px 10px;
+        }
       }
     }
   }
@@ -198,7 +201,7 @@ button:disabled:hover {
   position: absolute;
   top: 0;
   left: 0;
-  font-weight: 600;
+  //  font-weight: 600;
   padding: 4px 7px 2px 5px;
   text-transform: uppercase;
   color: $expire_lable_red;

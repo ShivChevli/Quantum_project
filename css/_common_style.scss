@@ -33,7 +33,7 @@ $expire_lable_red_bg: #ffe4e6;
   padding: 0;
   box-sizing: border-box;
   font-family: Quicksand, Arial, Helvetica, sans-serif;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 body {
@@ -53,12 +53,12 @@ body {
   margin: 5px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   &:focus-visible {
-    font-weight: 900;
+    font-weight: 700;
     border-bottom: 2px solid rgba(0, 0, 0, 1);
     outline: 0;
   }
   &:focus {
-    font-weight: 900;
+    font-weight: 700;
     border-bottom: 2px solid rgba(0, 0, 0, 1);
   }
 }
@@ -78,11 +78,11 @@ body {
   background-repeat: no-repeat;
   background-position: calc(100% - 3px) center;
   background-size: 20px;
-  font-weight: 600;
+  //  font-weight: 600;
 }
 
 .util-bold-font {
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .bg-offWhite {

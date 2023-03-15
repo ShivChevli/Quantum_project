@@ -101,7 +101,7 @@
           }
           .alert-list-item {
             display: block;
-            height: fit-content;
+            height: auto;
             text-align: left;
             padding: 16px;
             border-bottom: 1px solid gray;
@@ -146,7 +146,7 @@
             .list-content {
               display: flex;
               font-size: 14px;
-              font-weight: 600;
+              //  font-weight: 600;
               margin-bottom: 8px;
               color: $blank;
             }
@@ -237,7 +237,7 @@
           // transition: 1s;
           // height: 500px;
           height: 582px;
-          // max-height: fit-content;
+          // max-height: auto;
           // overflow: visible;
           // animation: openMenue 0.5s ease-in 0 1 forwards forwards;
           // animation: openMenue 0.5s ease-in forwards;
@@ -394,7 +394,7 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 798px) {
   .header {
     border-bottom: 2px solid $underline_blue;
     height: auto;

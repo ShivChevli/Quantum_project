@@ -2,6 +2,7 @@ import { POPUP_List } from "./popup_list.js";
 import { MobileMenu } from "./mobile_menu.js";
 import { POPUP_List_V2 } from "./popup_list_v2.js";
 import { Menubar } from "./manubar.js";
+import { loadNotifications } from "./loadData.js";
 let notification_badge = document.querySelector("#notification-badge");
 interface   fetchdataType{
     class_heading: string,
@@ -47,7 +48,7 @@ function loadCourseStatus(count: number): void{
 function loadClassDetails(): void {
     let container = document.querySelector(".card-container") as HTMLDivElement;
 
-    fetch("/data.json")
+    fetch("/data/card_data.json")
         .then(response => response.json())
         .then((data:fetchdataType[]) => {
             // console.log(data);
@@ -77,7 +78,7 @@ function loadClassDetails(): void {
                 
                 let load_option = `<select name="class-type" id="" aria-label="select classes" class="input-div--control input-div--control_arrow" ${item.options ?"":"disabled" }>
                                 ${item.options ? item.options.map((data) => `<option value="">${data}</option>`) :
-                        `<option value="-1" disabled selected hidden>No Class Selected</option>`
+                        `<option value="-1" selected >No Class Selected</option>`
                                 }
                             </select>`;
 
@@ -101,7 +102,6 @@ function loadClassDetails(): void {
                     `<div class="card-footer">
                             <button class="btn" aria-label="Preview" ${item.action.disablePreview ? "disabled" : ""}>
                                 <img src="assets/icons/preview.svg" alt="">
-                                <span hidden id="preview" >this is button description </span>
                             </button>
                             <button class="btn" aria-label="Manage Courses" ${item.action.disableCourseManager ? "disabled" : ""}>
                                 <img src="assets/icons/manage course.svg" alt="">
@@ -165,6 +165,7 @@ function loadClassDetails(): void {
 }
 
 loadClassDetails();
+// loadNotifications();
 
 let nav = document.querySelector("#nav-menu") as HTMLUListElement;
 let isOpen = false;
