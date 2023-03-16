@@ -192,7 +192,9 @@ button:disabled:hover {
   background: none;
   border: none;
 }
-
+.btn.disabled {
+  opacity: 0.5;
+}
 .btn:hover {
   cursor: pointer;
 }

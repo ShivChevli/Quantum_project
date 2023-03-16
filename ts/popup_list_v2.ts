@@ -107,7 +107,9 @@ export class POPUP_List_V2 {
             case "Down":
                 // console.log("Case 1");
                 this.openList();
-                this.setFocusToFirstNotification();
+                setTimeout(() => {
+                    this.setFocusToFirstNotification();
+                }, 2000)
                 flag = true;
                 break;
 
