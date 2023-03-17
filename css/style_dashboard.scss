@@ -85,6 +85,14 @@
       }
     }
 
+    .tabpanel {
+      display: none;
+      border: none;
+    }
+    .tabpanel.active {
+      display: block;
+    }
+
     .card-container {
       @include textCenter();
       // flex-wrap: wrap;
@@ -191,13 +199,15 @@ button:disabled:hover {
 .btn {
   background: none;
   border: none;
+  cursor: pointer;
 }
 .btn.disabled {
   opacity: 0.5;
+  pointer-events: none;
 }
-.btn:hover {
-  cursor: pointer;
-}
+// .btn:hover {
+//   cursor: pointer;
+// }
 
 .status-lable {
   position: absolute;

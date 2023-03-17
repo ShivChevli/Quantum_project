@@ -611,6 +611,13 @@ body {
   border-bottom: 1px solid #616161;
   margin-right: 24px;
 }
+.content-body .main-div .tabpanel {
+  display: none;
+  border: none;
+}
+.content-body .main-div .tabpanel.active {
+  display: block;
+}
 .content-body .main-div .card-container {
   display: flex;
   align-items: center;
@@ -698,14 +705,12 @@ button:disabled:hover {
 .btn {
   background: none;
   border: none;
+  cursor: pointer;
 }
 
 .btn.disabled {
   opacity: 0.5;
-}
-
-.btn:hover {
-  cursor: pointer;
+  pointer-events: none;
 }
 
 .status-lable {

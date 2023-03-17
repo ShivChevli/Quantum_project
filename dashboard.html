@@ -377,12 +377,12 @@
     <main class="content-body" id="main">
         <div class="main-div">
             <!-- sub tab -->
-            <h1 class="sub-tab">
-                <button class="sub-tab-item active">
+            <h1 class="sub-tab" role="tablist" aria-label="content">
+                <button class="sub-tab-item active" id="courses-tab" role="tab" aria-controls="card-container" aria-selected="true">
                     <img class="sub-tab-item--img" src="assets/icons/courses.svg" alt="">
                     <div><span class="sub-tab-item-quantity">4</span> <span class="sub-tab-item-lable">Courses</span></div>
                 </button>
-                <button class="sub-tab-item">
+                <button class="sub-tab-item" id="classed-tab" role="tab" aria-controls="class-container" aria-selected="false">
                     <img class="sub-tab-item--img" src="assets/icons/classes.svg" alt="">
                     <div><span class="sub-tab-item-quantity">4</span> <span class="sub-tab-item-lable">Classes</span></div>
                 </button>
@@ -401,10 +401,13 @@
                 </div>
             </div>
 
-            <div class="card-container">
-            
-            </div>
+            <section class="tabpanel active" role="tabpanel" id="card-container" aria-labelledby="courses-tab">
+                <div class="card-container">
+                
+                </div>
+            </section>
 
+            <section class="tabpanel" role="tabpanel" id="class-container" aria-labelledby="classed-tab"></section>
         </div>
     </main>
     <footer class="footer">

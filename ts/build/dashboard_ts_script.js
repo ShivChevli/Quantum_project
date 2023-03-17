@@ -11,6 +11,8 @@ import { MobileMenu } from "./mobile_menu.js";
 import { POPUP_List_V2 } from "./popup_list_v2.js";
 import { Menubar } from "./manubar.js";
 import { loadClassDetails, loadNotifications, loadAnnouncment } from "./loadData.js";
+import { CardFooterMenu } from "./card_footer_menu.js";
+import { TabMenu } from "./tabmenu.js";
 const loadNotificationModule = () => __awaiter(void 0, void 0, void 0, function* () {
     yield loadNotifications();
     let notification_popup = new POPUP_List_V2(document.querySelector("#notification-icon"));
@@ -19,7 +21,18 @@ const loadAnnouncmentModule = () => __awaiter(void 0, void 0, void 0, function* 
     yield loadAnnouncment();
     let announcement_popup = new POPUP_List_V2(document.querySelector("#announcement-icon"));
 });
-loadClassDetails();
+const loadCardsModule = () => __awaiter(void 0, void 0, void 0, function* () {
+    yield loadClassDetails();
+    let card_footer_menus = [];
+    document.querySelectorAll(".card-footer").forEach((el) => {
+        let t1 = new CardFooterMenu(el);
+        card_footer_menus.push(t1);
+    });
+});
+let mobile_menu = new MobileMenu(document.querySelector("#menu-toggle-btn"));
+let mmain_menu = new Menubar(document.querySelector("#nav-menu"));
+let tabmenu = new TabMenu(document.querySelector("[role='tablist']"));
+loadCardsModule();
 loadNotificationModule();
 loadAnnouncmentModule();
 let notification = document.querySelector("#notification-trigger-btn");
@@ -56,6 +69,4 @@ let announcement_list = document.querySelector("#announcements-list");
 // #######################################################################
 // let notification_popup:POPUP_List_V2 = new POPUP_List_V2(document.querySelector("#notification-icon"));
 // let announcement_popup: POPUP_List_V2 = new  POPUP_List_V2(document.querySelector("#announcement-icon"));
-let mobile_menu = new MobileMenu(document.querySelector("#menu-toggle-btn"));
-let mmain_menu = new Menubar(document.querySelector("#nav-menu"));
 //# sourceMappingURL=dashboard_ts_script.js.map

@@ -98,65 +98,65 @@ export const loadClassDetails = async ( )=> {
             `<span class="data-seprator">${item.course_duration.starting_date} - ${item.course_duration.ending_date}</span>`
             : "";
         
-        // let action_Section = item.action ?
-        //     `<div class="card-footer"  role="menu" aria-label="Card footer">
-        //             <div class="btn ${item.action.disablePreview ? "disabled" : ""}" role="menuitem" tabindex="0" aria-label="Show Preview for ${item.class_heading}" >
-        //                 <img src="assets/icons/preview.svg" alt="">
-        //             </div>
-        //             <div class="btn ${item.action.disableCourseManager ? "disabled" : ""}" role="menuitem" aria-label="Manage Courses for ${item.class_heading}">
-        //                 <img src="assets/icons/manage course.svg" alt="">
-        //             </div>
-        //             <div class="btn ${item.action.disableSubmission ? "disabled" : ""}" role="menuitem" aria-label="Grad Submission for ${item.class_heading}">
-        //                 <img src="assets/icons/grade submissions.svg" alt="">
-        //             </div>
-        //             <div class="btn ${item.action.disableReport ? "disabled" : ""}" role="menuitem" aria-label="Get Report for ${item.class_heading}">
-        //                 <img src="assets/icons/reports.svg" alt="">
-        //             </div>
-        //         </div>`
-        //     :`<div class="card-footer" role="menu" aria-label="Card footer">
-        //             <div class="btn" aria-label="Preview for ${item.class_heading}" role="menuitem" tabindex="0">
-        //                 <img src="assets/icons/preview.svg" alt="">
-        //             </div>
-        //             <div class="btn" aria-label="Manage Courses for ${item.class_heading}" role="menuitem">
-        //                 <img src="assets/icons/manage course.svg" alt="">
-        //             </div>
-        //             <div class="btn" aria-label="Grad Submission for ${item.class_heading}" role="menuitem">
-        //                 <img src="assets/icons/grade submissions.svg" alt="">
-        //             </div>
-        //             <div class="btn" aria-label="get Report for ${item.class_heading}" role="menuitem">
-        //                 <img src="assets/icons/reports.svg" alt="">
-        //             </div>
-        //         </div>`;
-        
         let action_Section = item.action ?
-            `<div class="card-footer"  aria-label="Card footer">
-                    <button class="btn" aria-label="show Preview for ${item.class_heading}" ${item.action.disablePreview ? "disabled" : ""} >
+            `<div class="card-footer"  role="menubar" aria-label="${item.class_heading} class tools">
+                    <button class="btn ${item.action.disablePreview ? "disabled" : ""}"  aria-disabled="${item.action.disablePreview ? "true" : "false"}" role="menuitem" tabindex="0" aria-label="Show Preview for ${item.class_heading}" >
                         <img src="assets/icons/preview.svg" alt="">
                     </button>
-                    <button class="btn" aria-label="Manage Courses for ${item.class_heading}" ${item.action.disableCourseManager ? "disabled" : ""}>
+                    <button class="btn ${item.action.disableCourseManager ? "disabled" : ""}" aria-disabled="${item.action.disableCourseManager ? "true" : "false"}" role="menuitem" aria-label="Manage Courses for ${item.class_heading}">
                         <img src="assets/icons/manage course.svg" alt="">
                     </button>
-                    <button class="btn" aria-label="Grad Submission for ${item.class_heading}" ${item.action.disableSubmission ? "disabled" : ""}>
+                    <button class="btn ${item.action.disableSubmission ? "disabled" : ""}" aria-disabled="${item.action.disableSubmission ? "true" : "false"}" role="menuitem" aria-label="Grad Submission for ${item.class_heading}">
                         <img src="assets/icons/grade submissions.svg" alt="">
                     </button>
-                    <button class="btn" aria-label="get Report for ${item.class_heading}" ${item.action.disableReport ? "disabled" : ""}>
+                    <button class="btn ${item.action.disableReport ? "disabled" : ""}" aria-disabled="${item.action.disableReport ? "true" : "false"}"  role="menuitem" aria-label="Get Report for ${item.class_heading}">
                         <img src="assets/icons/reports.svg" alt="">
-                    </button>
+                    </butt>
                 </div>`
-            :`<div class="card-footer" role="menu" aria-label="Card footer">
-                    <button class="btn" aria-label="show Preview for ${item.class_heading}">
+            :`<div class="card-footer" role="menubar" aria-label="${item.class_heading} class tools">
+                    <button class="btn" aria-label="Preview for ${item.class_heading}" role="menuitem" tabindex="0">
                         <img src="assets/icons/preview.svg" alt="">
                     </button>
-                    <button class="btn" aria-label="Manage Courses for ${item.class_heading}" >
+                    <button class="btn" aria-label="Manage Courses for ${item.class_heading}" role="menuitem">
                         <img src="assets/icons/manage course.svg" alt="">
                     </button>
-                    <button class="btn" aria-label="Grad Submission for ${item.class_heading}" >
+                    <button class="btn" aria-label="Grad Submission for ${item.class_heading}" role="menuitem">
                         <img src="assets/icons/grade submissions.svg" alt="">
                     </button>
-                    <button class="btn" aria-label="get Report for ${item.class_heading}" >
+                    <button class="btn" aria-label="get Report for ${item.class_heading}" role="menuitem">
                         <img src="assets/icons/reports.svg" alt="">
                     </button>
                 </div>`;
+        
+        // let action_Section = item.action ?
+        //     `<div class="card-footer"  aria-label="Card footer">
+        //             <button class="btn" aria-label="show Preview for ${item.class_heading}" ${item.action.disablePreview ? "disabled" : ""} >
+        //                 <img src="assets/icons/preview.svg" alt="">
+        //             </button>
+        //             <button class="btn" aria-label="Manage Courses for ${item.class_heading}" ${item.action.disableCourseManager ? "disabled" : ""}>
+        //                 <img src="assets/icons/manage course.svg" alt="">
+        //             </button>
+        //             <button class="btn" aria-label="Grad Submission for ${item.class_heading}" ${item.action.disableSubmission ? "disabled" : ""}>
+        //                 <img src="assets/icons/grade submissions.svg" alt="">
+        //             </button>
+        //             <button class="btn" aria-label="get Report for ${item.class_heading}" ${item.action.disableReport ? "disabled" : ""}>
+        //                 <img src="assets/icons/reports.svg" alt="">
+        //             </button>
+        //         </div>`
+        //     :`<div class="card-footer" role="menu" aria-label="Card footer">
+        //             <button class="btn" aria-label="show Preview for ${item.class_heading}">
+        //                 <img src="assets/icons/preview.svg" alt="">
+        //             </button>
+        //             <button class="btn" aria-label="Manage Courses for ${item.class_heading}" >
+        //                 <img src="assets/icons/manage course.svg" alt="">
+        //             </button>
+        //             <button class="btn" aria-label="Grad Submission for ${item.class_heading}" >
+        //                 <img src="assets/icons/grade submissions.svg" alt="">
+        //             </button>
+        //             <button class="btn" aria-label="get Report for ${item.class_heading}" >
+        //                 <img src="assets/icons/reports.svg" alt="">
+        //             </button>
+        //         </div>`;
         
         
         container.innerHTML += `

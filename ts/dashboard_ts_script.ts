@@ -3,6 +3,8 @@ import { MobileMenu } from "./mobile_menu.js";
 import { POPUP_List_V2 } from "./popup_list_v2.js";
 import { Menubar } from "./manubar.js";
 import { loadClassDetails ,loadNotifications, loadAnnouncment } from "./loadData.js";
+import { CardFooterMenu } from "./card_footer_menu.js";
+import { TabMenu } from "./tabmenu.js";
 
 
 const loadNotificationModule = async () => {
@@ -14,7 +16,19 @@ const loadAnnouncmentModule = async () => {
     await loadAnnouncment();
     let announcement_popup: POPUP_List_V2 = new  POPUP_List_V2(document.querySelector("#announcement-icon"));
 }
-loadClassDetails();
+const loadCardsModule = async () => {
+    await loadClassDetails();
+    let card_footer_menus: Array<CardFooterMenu> = [];
+    document.querySelectorAll(".card-footer").forEach((el:HTMLDivElement) => {
+        let t1: CardFooterMenu = new CardFooterMenu(el);
+        card_footer_menus.push(t1);
+    })
+}
+let mobile_menu: MobileMenu = new MobileMenu(document.querySelector("#menu-toggle-btn"));
+let mmain_menu: Menubar = new Menubar(document.querySelector("#nav-menu"));
+let tabmenu: TabMenu = new TabMenu(document.querySelector("[role='tablist']"));
+
+loadCardsModule();
 loadNotificationModule();
 loadAnnouncmentModule();
 
@@ -60,5 +74,3 @@ let announcement_list: HTMLDivElement = document.querySelector("#announcements-l
 // let notification_popup:POPUP_List_V2 = new POPUP_List_V2(document.querySelector("#notification-icon"));
 // let announcement_popup: POPUP_List_V2 = new  POPUP_List_V2(document.querySelector("#announcement-icon"));
 
-let mobile_menu: MobileMenu = new MobileMenu(document.querySelector("#menu-toggle-btn"));
-let mmain_menu: Menubar = new Menubar(document.querySelector("#nav-menu"));
