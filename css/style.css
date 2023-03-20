@@ -184,12 +184,12 @@ body {
 .header .navbar .navbar-menu li .notification-badge {
   position: absolute;
   top: -5px;
-  right: 10px;
+  right: 12px;
   text-align: center;
-  font-size: 10px;
+  font-size: 12px;
   display: block;
-  width: 12px;
-  height: 12px;
+  width: 15px;
+  height: 15px;
   background: #0850b5;
   border-radius: 50%;
   color: #ffffff;
@@ -570,26 +570,36 @@ body {
   grid-column: span 2;
 }
 
-.select-btn-group {
-  margin: 23px 0;
+.login-body .select-btn-group {
+  margin: 20px 0;
   display: flex;
 }
-
-.select-btn-container {
-  margin-right: 32px;
+.login-body .select-btn-container {
+  padding: 3px 5px 3px 0;
+  margin-right: 27px;
   align-items: center;
+  border: 1px solid transparent;
 }
-.select-btn-container * {
+.login-body .select-btn-container * {
   vertical-align: middle;
 }
-.select-btn-container input {
+.login-body .select-btn-container input {
   font-size: 20px;
   height: 24px;
   width: 20px;
 }
-.select-btn-container label {
+.login-body .select-btn-container label {
   font-size: 16px;
   margin-left: 8px;
+}
+.login-body .focus {
+  border-color: #000000;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.0588235294);
+}
+.login-body input[type=radio]:focus-visible {
+  border: none;
+  outline: none;
 }
 
 .input-div--normal_margin {
