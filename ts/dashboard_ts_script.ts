@@ -1,4 +1,3 @@
-import { POPUP_List } from "./popup_list.js";
 import { MobileMenu } from "./mobile_menu.js";
 import { POPUP_List_V2 } from "./popup_list_v2.js";
 import { Menubar } from "./manubar.js";

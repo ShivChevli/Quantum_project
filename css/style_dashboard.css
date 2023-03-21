@@ -669,6 +669,10 @@ body {
 }
 .content-body .main-div .card-div .card-body .card-content-detail .card-header .favourite-btn {
   grid-column: 12;
+  color: rgba(33, 62, 84, 0.2392156863);
+}
+.content-body .main-div .card-div .card-body .card-content-detail .card-header .checked {
+  color: #edc900;
 }
 .content-body .main-div .card-div .card-body .card-content-detail p {
   margin: 7px 0;

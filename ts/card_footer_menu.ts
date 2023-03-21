@@ -9,9 +9,7 @@ export class CardFooterMenu{
 
     constructor(element:HTMLDivElement) {
         this.menu = element;
-        // this.next_element = element.ha
         let t1 = element.querySelectorAll("button[role='menuitem']");
-        // console.log(t1);
         this.menu_items = [];
         t1.forEach((el: HTMLButtonElement) => {
             this.menu_items.push(el);
@@ -68,7 +66,6 @@ export class CardFooterMenu{
         }
     }
     setFocusToNextMenuItem() {
-        console.log("set next called")
         this.active_menu++;
         if (this.active_menu >= this.menu_length) {
             this.active_menu = 0;
@@ -94,7 +91,6 @@ export class CardFooterMenu{
         if (active_menu_item === undefined) {
             active_menu_item = this.menu_items[this.active_menu];
         }
-        console.log("set Focus called index : " + active_menu_item);
         this.menu_items.forEach(el => {
             if (el === active_menu_item) {
                 active_menu_item.tabIndex = 0;

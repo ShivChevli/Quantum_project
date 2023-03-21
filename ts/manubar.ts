@@ -46,15 +46,9 @@ export class Menubar{
 
     
     onMainMenuLinkKeydown(event) {
-        // // console.log("Notification Keydown Event called");
         var tgt = event.currentTarget as HTMLAnchorElement,
             key = event.key,
             flag = false;
-
-
-        // if (event.ctrlKey || event.altKey || event.metaKey) {
-        //     return;
-        // }
 
         if (event.shiftKey) {
 
@@ -76,7 +70,7 @@ export class Menubar{
             switch (key) {
                 case " ":
                     // console.log("case 1");
-                    /* Add space Functionality */
+                    /* Add space and Enter Functionality */
 
                     break;
 
@@ -87,15 +81,12 @@ export class Menubar{
 
                 case "Up":
                 case "ArrowUp":
-                    // console.log("case 3");
-                    // this.setFocusToPreviousNotification(tgt);
                     this.closeSubMenu();
                     flag = true;
                     break;
 
                 case "ArrowDown":
                 case "Down":
-                    // console.log("case 4");
                     this.openSubMenu(tgt);
                     flag = true;
                     break;
@@ -104,13 +95,11 @@ export class Menubar{
                 case "ArrowRight":
                 case "Right":
                     this.changeNextMenuLink();
-                // console.log("Arrow Right Pressed ");
                     flag = true;
                     break;
 
                 case "ArrowLeft":
                 case "Left":
-                    // console.log("Arrow Left Pressed ");
                     this.changePreviousMenuLink();
                     flag = true;
                     break;
@@ -127,17 +116,15 @@ export class Menubar{
                     flag = true;
                     break;
 
-                case "Tab":
-                    // this.closeMenu();
-                    // this.button.focus();
-                    break;
+                // case "Tab":
+                //     // Add Tab Functionality
+                //     break;
 
                 default:
                     let tmp = key.toString();
                     if (this.changeNextMenuLinkByCharature(tmp)) {
                         flag = true;   
                     }
-                    // console.log(key);
                     break;
             }
         }
@@ -150,15 +137,9 @@ export class Menubar{
 
     
     onLinkKeydown(event) {
-        // // console.log("Notification Keydown Event called");
         var tgt = event.currentTarget as HTMLAnchorElement,
             key = event.key,
             flag = false;
-
-
-        // if (event.ctrlKey || event.altKey || event.metaKey) {
-        //     return;
-        // }
 
         if (event.shiftKey) {
 
@@ -190,15 +171,12 @@ export class Menubar{
 
                 case "Up":
                 case "ArrowUp":
-                    // console.log("case 3");
-                    // this.setFocusToPreviousNotification(tgt);
                     this.changePreviousMenuLink();
                     flag = true;
                     break;
 
                 case "ArrowDown":
                 case "Down":
-                    // console.log("case 4");
                     this.changeNextMenuLink();
                     flag = true;
                     break;
@@ -206,14 +184,12 @@ export class Menubar{
                 
                 case "ArrowRight":
                 case "Right":
-                    // console.log("Arrow Right Pressed ");
                     this.openSubMenu(tgt);
                     flag = true;
                     break;
 
                 case "ArrowLeft":
                 case "Left":
-                    // console.log("Arrow Left Pressed ");
                     this.closeSubMenu();
                     flag = true;
                     break;
@@ -240,7 +216,6 @@ export class Menubar{
                     if (this.changeNextMenuLinkByCharature(tmp)) {
                         flag = true;
                     }   
-                    // console.log(key);
                     break;
             }
         }
@@ -252,8 +227,6 @@ export class Menubar{
     }
 
     changeNextMenuLink() {
-        // console.log("Change Next Menu link called");
-        // console.log("active Menu index", this.active_index);
         let tmp = this.active_index + 1;
         if (tmp >= this.active_menu.length) {
             tmp = 0;
@@ -263,8 +236,6 @@ export class Menubar{
     }
 
     changePreviousMenuLink() {
-        // console.log("Change Previous Menu link called");
-        // console.log("active Menu index", this.active_index);
         let tmp = this.active_index - 1 ;
         if (tmp < 0) {
             tmp = this.active_menu.length -1 ;
@@ -375,16 +346,11 @@ export class Menubar{
             this.active_index = -1;
 
             element.setAttribute("aria-expanded", "true");
-            // console.log("Open Submenu called");
-            // console.log(submenu);
             this.changeNextMenuLink();
-            // let a = ul.quer
         }
         else {
             this.setMenuLinkFocus(this.active_menu[this.active_index]);
         }
-        // console.log("Open Submenu called")
-        // console.log(submenu);
     }
 
     closeSubMenu() {
@@ -401,16 +367,6 @@ export class Menubar{
             li.classList.remove("display-block");
 
             let dropdown_icon = a.querySelector(".drop-down-arrow") as HTMLSpanElement;
-            
-            // let t = {
-            //     tmp_index,
-            //     tmp_menu,
-            //     a,
-            //     dropdown_icon,
-            //     li,
-            // }
-            // console.log("Values");
-            // console.log(t);
 
             if (dropdown_icon !== null) {
                 let ul = li.querySelector("ul") as HTMLUListElement;
@@ -439,7 +395,6 @@ export class Menubar{
             if (el === newActiveLink) {
                 newActiveLink.tabIndex = 0;
                 newActiveLink.focus();
-                // // console.log(newActiveLink);
             }
             else {
                 el.tabIndex = -1;

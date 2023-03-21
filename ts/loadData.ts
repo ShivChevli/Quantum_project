@@ -51,27 +51,13 @@ export const loadClassDetails = async ( )=> {
     let container = document.querySelector(".card-container") as HTMLDivElement;
     let data = await getData("/data/card_data.json");
     
-    // console.log(data);
     loadCourseStatus(data.length);
 
     data.map((item) => {
-        let stared_Section = item.is_starred ?
-            `<img src='assets/icons/favourite.svg' tabindex="0" role="checkbox" aria-checked="true" alt='added to favourite'>`
-            : `<svg id="favourite" xmlns="http://www.w3.org/2000/svg" tabindex="0" role="checkbox" aria-checked="false" width="24" height="24"
-                    viewBox="0 0 24 24">
-                    <path id="Path_3678" data-name="Path 3678" d="M0,0H24V24H0Z" fill="none" />
-                    <path id="Path_3679" data-name="Path 3679"
-                        d="M12,17.27,18.18,21l-1.64-7.03L22,9.24l-7.19-.61L12,2,9.19,8.63,2,9.24l5.46,4.73L5.82,21Z"
-                        fill="#213E543D" />
-                    <path id="Path_3680" data-name="Path 3680" d="M0,0H24V24H0Z" fill="none" />
-                </svg>`;
-
+        
         let grad_section = ""; 
         if (item.grad) {
             let tmp = item.grad.split("+");
-            // console.log("Tmp");
-            // console.log(tmp);
-            // console.log(item.grad);
             let tmp1 = tmp[1] !== undefined ? `<span class="text-green"> ${'+'+tmp[1]}</span>` : "";
             grad_section = `<span class="data-seprator">${tmp[0]} ${tmp1}</span>`;
         }
@@ -169,8 +155,14 @@ export const loadClassDetails = async ( )=> {
                             <span class="card-heading">
                                 ${item.class_heading}
                             </span>
-                            <span class="btn favourite-btn">
-                                ${stared_Section}
+                            <span class="btn favourite-btn ${item.is_starred ? "checked":""}" tabindex="0" role="checkbox" aria-checked="${item.is_starred ? "true":"false"}" alt='added ${item.class_heading} to favourite'>
+                                <svg id="favourite" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path id="Path_3678" data-name="Path 3678" d="M0,0H24V24H0Z" fill="none" />
+                                    <path id="Path_3679" data-name="Path 3679"
+                                        d="M12,17.27,18.18,21l-1.64-7.03L22,9.24l-7.19-.61L12,2,9.19,8.63,2,9.24l5.46,4.73L5.82,21Z"
+                                        fill="currentColor" />
+                                    <path id="Path_3680" data-name="Path 3680" d="M0,0H24V24H0Z" fill="none" />
+                                </svg>
                             </span>
                         </h2>
                         <p class="class-topic-detail">
@@ -196,7 +188,6 @@ export const loadNotifications = async () => {
     let ul = notification_list.querySelector("ul");
 
     let data = await getData("/data/notifications.json");
-    console.log(data);
     data.map(el => {
         let li = document.createElement("li");
         li.classList.add("alert-list-item");
@@ -229,7 +220,6 @@ export const loadAnnouncment = async () => {
     let ul = announcements_list.querySelector("ul");
 
     let data = await getData("/data/announcement.json");
-    console.log("Announcement List load")
 
     data.map(element => {
         let li = document.createElement("li");

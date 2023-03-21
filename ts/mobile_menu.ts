@@ -8,16 +8,6 @@ export class MobileMenu {
     menu_stack: Array<Array<HTMLAnchorElement>>;
     first_char_array: Array<string>;
 
-    // menuitems: HTMLElement[];
-    // popups: HTMLElement[];
-    // menuitemGroups: any;
-    // menuOrientation: any;
-    // isPopup: any;
-    // isPopout: any;
-    // openPopups: boolean;
-    // firstChars: any;
-    // firstMenuitem: any;
-    // lastMenuitem: any;
 
     constructor(element: HTMLDivElement) {
         this.domNode = element;
@@ -25,9 +15,6 @@ export class MobileMenu {
         this.menu = element.querySelector("nav");
 
         this.button.addEventListener("click", this.toggleMenu.bind(this));
-        // this.button.parentElement.addEventListener("mouseenter", this.openMenu.bind(this));
-        // this.button.parentElement.addEventListener("mouseleave", this.closeMenu.bind(this));
-        // this.domNode.addEventListener("focusout", this.closeMenu.bind(this));    
 
         this.button.addEventListener("keydown", this.onToggleKeydown.bind(this));
         this.active_index = -1;
@@ -44,13 +31,7 @@ export class MobileMenu {
 
         let main_ul: HTMLUListElement = element.querySelector("nav > ul");
         let main_menu = this.getMenuLinks(main_ul);
-        // console.log("Link Got from Function");
-        // console.log(main_menu);
         this.active_menu = main_menu["menu_links"];
-        // this.menu.addEventListener("blur", this.closeMenu.bind(this));
-        this.menu.querySelector("ul").addEventListener("focusin", () => {
-            console.log("Menu become BLure")
-        });
     }
 
     onMenuLinkClick(event:MouseEvent) {
@@ -61,7 +42,6 @@ export class MobileMenu {
     }
 
     onToggleKeydown(event) {
-        // console.log("Button Key Down event");
         var key = event.key,
             flag = false;
 
@@ -70,14 +50,12 @@ export class MobileMenu {
             case "Enter":
             case "ArrowDown":
             case "Down":
-                // console.log("Case 1");
                 this.openMenu();
                 flag = true;
                 break;
 
             case "Esc":
             case "Escape":
-                // console.log("Case 2");
                 this.closeMenu();
                 this.button.focus();
                 flag = true;
@@ -85,7 +63,6 @@ export class MobileMenu {
 
             case "Up":
             case "ArrowUp":
-                // console.log("Case 3");
                 this.openMenu();
                 flag = true;
                 break;
@@ -97,22 +74,15 @@ export class MobileMenu {
         }
 
         if (flag) {
-            // console.log("flag change")
             event.stopPropagation();
             event.preventDefault();
         }
     }
 
     onLinkKeydown(event) {
-        // // console.log("Notification Keydown Event called");
         var tgt = event.currentTarget as HTMLAnchorElement,
             key = event.key,
             flag = false;
-
-
-        // if (event.ctrlKey || event.altKey || event.metaKey) {
-        //     return;
-        // }
 
         if (event.shiftKey) {
 
@@ -141,7 +111,6 @@ export class MobileMenu {
 
                 case "Esc":
                 case "Escape":
-                    // console.log("case 2");
                     this.closeMenu();
                     this.button.focus();
                     flag = true;
@@ -149,15 +118,12 @@ export class MobileMenu {
 
                 case "Up":
                 case "ArrowUp":
-                    // console.log("case 3");
-                    // this.setFocusToPreviousNotification(tgt);
                     this.changePreviousMenuLink();
                     flag = true;
                     break;
 
                 case "ArrowDown":
                 case "Down":
-                    // console.log("case 4");
                     this.changeNextMenuLink();
                     flag = true;
                     break;
@@ -165,14 +131,12 @@ export class MobileMenu {
                 
                 case "ArrowRight":
                 case "Right":
-                    // console.log("Arrow Right Pressed ");
                     this.openSubMenu(tgt);
                     flag = true;
                     break;
 
                 case "ArrowLeft":
                 case "Left":
-                    // console.log("Arrow Left Pressed ");
                     this.closeSubMenu();
                     flag = true;
                     break;
@@ -199,7 +163,6 @@ export class MobileMenu {
                     if (this.changeNextMenuLinkByCharature(tmp)) {
                         flag = true;   
                     }
-                    // console.log(key);
                     break;
             }
         }
@@ -212,8 +175,6 @@ export class MobileMenu {
 
 
     changeNextMenuLink() {
-        // console.log("Change Next Menu link called");
-        // console.log("active Menu index", this.active_index);
         let tmp = this.active_index + 1;
         if (tmp >= this.active_menu.length) {
             tmp = 0;
@@ -223,8 +184,6 @@ export class MobileMenu {
     }
 
     changePreviousMenuLink() {
-        // console.log("Change Previous Menu link called");
-        // console.log("active Menu index", this.active_index);
         let tmp = this.active_index - 1 ;
         if (tmp < 0) {
             tmp = this.active_menu.length -1 ;
@@ -328,16 +287,11 @@ export class MobileMenu {
             this.active_index = -1;
 
             element.setAttribute("aria-expanded", "true");
-            // console.log("Open Submenu called");
-            // console.log(submenu);
             this.changeNextMenuLink();
-            // let a = ul.quer
         }
         else {
             this.setMenuLinkFocus(this.active_menu[this.active_index]);
         }
-        // console.log("Open Submenu called")
-        // console.log(submenu);
     }
 
     closeSubMenu() {
@@ -345,33 +299,17 @@ export class MobileMenu {
             this.setMenuLinkFocus(null);
 
             let tmp_menu: Array<HTMLAnchorElement> = this.menu_stack.pop();
-            // let t1 = ;
             let tmp_index : HTMLAnchorElement = this.active_index_stack.pop();
-
             let a:HTMLAnchorElement = tmp_index;
             let li = a.parentElement as HTMLLIElement;
+            let dropdown_icon = a.querySelector(".drop-down-arrow") as HTMLSpanElement;
+            let ul = li.querySelector("ul") as HTMLUListElement; 
+
             li.classList.remove("background-highlight");
             li.classList.remove("display-block");
-
-            let dropdown_icon = a.querySelector(".drop-down-arrow") as HTMLSpanElement;
-            
-            // let t = {
-            //     tmp_index,
-            //     tmp_menu,
-            //     a,
-            //     dropdown_icon,
-            //     li,
-            // }
-            // console.log("Values");
-            // console.log(t);
-
-            // if (dropdown_icon !== null) {
-                let ul = li.querySelector("ul") as HTMLUListElement;
-               
-                ul.classList.remove("display-block");
-                dropdown_icon.style.backgroundImage = `url("/assets/screen_Assets/icons/dropdown-arrow-down.svg")`;
-            // }
-
+            ul.classList.remove("display-block");
+            dropdown_icon.style.backgroundImage = `url("/assets/screen_Assets/icons/dropdown-arrow-down.svg")`;
+        
 
             a.setAttribute("aria-expanded", "false");
             
@@ -402,7 +340,6 @@ export class MobileMenu {
             if (el === newActiveLink) {
                 newActiveLink.tabIndex = 0;
                 newActiveLink.focus();
-                // // console.log(newActiveLink);
             }
             else {
                 el.tabIndex = -1;
@@ -418,7 +355,6 @@ export class MobileMenu {
         this.active_index = t;
     }
     closeMenu() {
-        // console.log("Close Menu")
         if (this.isOpen()) {
             this.button.setAttribute("aria-expanded", "false");
             this.menu.classList.remove("show");

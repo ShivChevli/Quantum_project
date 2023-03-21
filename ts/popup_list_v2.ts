@@ -27,7 +27,6 @@ export class POPUP_List_V2 {
         });
         this.footerBtns = tmp;
         this.active_action_btn_index = -1;
-        // console.log(this.footerBtns);
 
         for (var i = 0; i < nodes.length; i++) {
             var menuitem = nodes[i];
@@ -38,11 +37,6 @@ export class POPUP_List_V2 {
                 "keydown",
                 this.onNotificationKeydown.bind(this)
             );
-
-            //   menuitem.addEventListener(
-            //     "mouseover",
-            //     this.onMenuitemMouseover.bind(this)
-            //   );
 
             if (!this.firstNotification) {
                 this.firstNotification = menuitem;
@@ -61,7 +55,6 @@ export class POPUP_List_V2 {
     }
 
     openList() {
-        // console.log("Open List function Called");
         this.trigger_btn.setAttribute("aria-expanded", "true");
         this.target.classList.add("show-list");
         this.target.setAttribute("aria-hidden", "false");
@@ -96,7 +89,6 @@ export class POPUP_List_V2 {
     }
 
     onButtonKeydown(event) {
-        // console.log("Button Key Down event");
         var key = event.key,
             flag = false;
         
@@ -105,11 +97,8 @@ export class POPUP_List_V2 {
             case "Enter":
             case "ArrowDown":
             case "Down":
-                // console.log("Case 1");
                 this.openList();
-                setTimeout(() => {
-                    this.setFocusToFirstNotification();
-                }, 2000)
+                this.setFocusToFirstNotification();
                 flag = true;
                 break;
 
@@ -127,20 +116,17 @@ export class POPUP_List_V2 {
                 break;
 
             default:
-                // console.log("default case");
-                console.log("Key Buiding is not Avaliable")
+                // console.log("Key Buiding is not Avaliable")
                 break;
         }
 
         if (flag) {
-            // console.log("flag change")
             event.stopPropagation();
             event.preventDefault();
         }
     }
 
     onNotificationKeydown(event) {
-        // console.log("Notification Keydown Event called");
         var tgt = event.currentTarget,
             key = event.key,
             flag = false;
@@ -177,46 +163,35 @@ export class POPUP_List_V2 {
 
                 case "Esc":
                 case "Escape":
-                    // console.log("case 2");
                     this.closeList();
                     flag = true;
                     break;
 
                 case "Up":
                 case "ArrowUp":
-                    // console.log("case 3");
                     this.setFocusToPreviousNotification(tgt);
                     flag = true;
                     break;
 
                 case "ArrowDown":
                 case "Down":
-                    // console.log("case 4");
                     this.setFocusToNextNotification(tgt);
                     flag = true;
                     break;
 
                 case "Home":
                 case "PageUp":
-                    // console.log("case 5");
                     this.setFocusToFirstNotification();
                     flag = true;
                     break;
 
                 case "End":
                 case "PageDown":
-                    // console.log("case 6");
                     this.setFocusToLastNotification();
                     flag = true;
                     break;
 
                 case "Tab":
-                    // console.log("case 7");
-                    // this.closeList();
-                    // let t = this.active_action_btn_index === -1 ? 0 : this.active_action_btn_index;
-                    // this.setFocusToNotification(null);
-                    // this.setActionBtn(this.footerBtns[t]);
-                    // this.active_action_btn_index = t;
                     this.setNextActionBtn();
                     flag = true;
                     break;
@@ -242,9 +217,6 @@ export class POPUP_List_V2 {
 
             switch (key) {
                 case "Tab":
-                    // this.closeList();
-                    // flag = true;
-                    // this.setLastActionBtn();
                     this.setFocusToNotification(this.activeNotification);
                     flag = true
                     break;
@@ -277,8 +249,6 @@ export class POPUP_List_V2 {
                     break;
 
                 case "Tab":
-                  // console.log("Tab Btn click")
-                    // this.setFocusToFirstNotification();
                     this.setFocusToNotification(this.activeNotification);
                     flag = true;
                   break;
@@ -291,7 +261,6 @@ export class POPUP_List_V2 {
 
                 case "Esc":
                 case "Escape":
-                // case "Tab":
                     this.closeList();
                     flag = true;
                     break;
@@ -304,13 +273,11 @@ export class POPUP_List_V2 {
 
                 default:
                     // console.log("default case");
-                    // console.log("Key Buiding is not Avaliable")
                     break;
             }
         }
 
         if (flag) {
-            // console.log("flag change")
             event.stopPropagation();
             event.preventDefault();
         }
@@ -348,8 +315,6 @@ export class POPUP_List_V2 {
     }
 
      setActionBtn(target) {
-        // console.log("set action btn called");
-        // console.log(target);
         this.footerBtns.forEach((el) => {
             if (el === target) {
                 el.tabIndex = 0;

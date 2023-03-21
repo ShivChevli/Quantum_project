@@ -12,6 +12,12 @@
     <!-- <link rel="preload" as="font" href="assets/Quicksand font 1/Quicksand-VariableFont_wght.ttf" 
     type="font/ttf" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="css/style_dashboard.css">
+    <script src="./ts/build/manubar.js" type="module" defer></script>
+    <script src="./ts/build/popup_list_v2.js" type="module" defer></script>
+    <script src="./ts/build/loadData.js" type="module" defer></script>
+    <script src="./ts/build/tabmenu.js" type="module" defer></script>
+    <script src="./ts/build/mobile_menu.js" type="module" defer></script>
+    <script src="./ts/build/card_footer_menu.js" type="module" defer></script>
 </head>
 
 <body>
@@ -377,16 +383,16 @@
     <main class="content-body" id="main">
         <div class="main-div">
             <!-- sub tab -->
-            <h1 class="sub-tab" role="tablist" aria-label="content">
+            <div class="sub-tab" role="tablist" aria-label="content">
                 <button class="sub-tab-item active" id="courses-tab" role="tab" aria-controls="card-container" aria-selected="true">
                     <img class="sub-tab-item--img" src="assets/icons/courses.svg" alt="">
-                    <div><span class="sub-tab-item-quantity">4</span> <span class="sub-tab-item-lable">Courses</span></div>
+                    <h1><span class="sub-tab-item-quantity">4</span> <span class="sub-tab-item-lable">Courses</span></>
                 </button>
                 <button class="sub-tab-item" id="classed-tab" role="tab" aria-controls="class-container" aria-selected="false">
                     <img class="sub-tab-item--img" src="assets/icons/classes.svg" alt="">
-                    <div><span class="sub-tab-item-quantity">4</span> <span class="sub-tab-item-lable">Classes</span></div>
+                    <h1><span class="sub-tab-item-quantity">4</span> <span class="sub-tab-item-lable">Classes</span></h1>
                 </button>
-            </h1>
+            </div>
 
             <!-- filter  -->
             <div class="filter-bar">
@@ -424,7 +430,7 @@
             <span class="footer-content--span">All right reserved</span>
         </div>
     </footer>
-    <script src="./ts/build/dashboard_ts_script.js" defer type="module" ></script>
+    <script src="./ts/build/dashboard_ts_script.js" type="module"></script>
 </body>
 
 </html>
