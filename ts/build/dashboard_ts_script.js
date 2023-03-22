@@ -7,10 +7,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import { loadClassDetails, loadNotifications, loadAnnouncment } from "./loadData.js";
+import { Menubar } from "./manubar.js";
 import { MobileMenu } from "./mobile_menu.js";
 import { POPUP_List_V2 } from "./popup_list_v2.js";
-import { Menubar } from "./manubar.js";
-import { loadClassDetails, loadNotifications, loadAnnouncment } from "./loadData.js";
 import { CardFooterMenu } from "./card_footer_menu.js";
 import { TabMenu } from "./tabmenu.js";
 const loadNotificationModule = () => __awaiter(void 0, void 0, void 0, function* () {
@@ -28,6 +28,21 @@ const loadCardsModule = () => __awaiter(void 0, void 0, void 0, function* () {
         let t1 = new CardFooterMenu(el);
         card_footer_menus.push(t1);
     });
+    document.querySelectorAll(".card-div .favourite-btn").forEach((el) => {
+        el.addEventListener("click", (event) => {
+            el.classList.toggle("checked");
+            el.ariaChecked = el.ariaChecked === "true" ? "false" : "true";
+        });
+        el.addEventListener("keydown", (event) => {
+            let key = event.key;
+            if (key === " " || key === "Enter") {
+                el.classList.toggle("checked");
+                el.ariaChecked = el.ariaChecked === "true" ? "false" : "true";
+                event.preventDefault();
+                event.stopPropagation();
+            }
+        });
+    });
 });
 let mobile_menu = new MobileMenu(document.querySelector("#menu-toggle-btn"));
 let mmain_menu = new Menubar(document.querySelector("#nav-menu"));
@@ -35,28 +50,6 @@ let tabmenu = new TabMenu(document.querySelector("[role='tablist']"));
 loadCardsModule();
 loadNotificationModule();
 loadAnnouncmentModule();
-let notification = document.querySelector("#notification-trigger-btn");
-let notification_list = document.querySelector("#notification-list");
-let announcement = document.querySelector("#announcement-trigger-btn");
-let announcement_list = document.querySelector("#announcements-list");
-// notification.addEventListener("click", () => {
-//     notification.setAttribute("aria-expanded", "true");
-//     notification_list.classList.add("show-list");
-//     console.log(notification.parentElement);
-// });
-// notification.parentElement.addEventListener("focusout", event => {
-//     notification.setAttribute("aria-expanded", "false");
-//     notification_list.classList.remove("show-list");
-// })
-// announcement.addEventListener("click", () => {
-//     announcement.setAttribute("aria-expanded", "true");
-//     announcement_list.classList.add("show-list");
-//     console.log(announcement.parentElement);
-// });
-// announcement.parentElement.addEventListener("focusout", event => {
-//     announcement.setAttribute("aria-expanded", "false");
-//     announcement_list.classList.remove("show-list");
-// })
 // #######################################################################
 // ########################### Version 1 #################################
 // #######################################################################

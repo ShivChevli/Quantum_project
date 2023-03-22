@@ -88,42 +88,6 @@
   /* margin-left: px; */
 }
 
-// .input-div--control {
-//   width: 100%;
-//   background: $pure_white;
-//   border: none;
-//   color: $blank;
-//   font-size: 16px;
-//   margin: 5px 0;
-//   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-//   &:focus-visible {
-//     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-//     outline: 0;
-//   }
-//   &:focus {
-//     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-//   }
-// }
-
-// .input-div--control_arrow {
-//   appearance: none;
-//   padding-right: 20px;
-//   background-image: url("../assets/icons/arrow-down.svg");
-//   background-repeat: no-repeat;
-//   background-position: calc(100% - 3px) center;
-//   background-size: 20px;
-// }
-
-// .input-div-forgot-link {
-//   color: $dark_green;
-//   font-size: 14px;
-//   display: block;
-//   text-decoration: no;
-//   text-align: right;
-//   font-feature-settings: "smcp";
-//   text-transform: uppercase;
-// }
-
 .input-div--password-div {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
